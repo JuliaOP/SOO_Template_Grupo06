@@ -1,0 +1,559 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>:: Sistemas Orientados a Objetos 2020 - Prof. Dr. Frank J. Affonso</title>
+        <link rel="stylesheet" href="../../../foundation-sites-6.6.3-CSS/assets/css/foundation.css" />        
+        <link rel="stylesheet" href="../../../foundation-sites-6.6.3-CSS/assets/css/app.css" />
+    </head>
+
+    <body>
+        <!-- TOPO DA PÁGINA-->
+        <div id="topo">
+            <div class="background">
+                <div class="grid-container">
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell small-12">
+                            <div class="cell small-10">&nbsp;</div>
+                            <div class="cell small-2">
+                                <p class="right marginTop"><button class="button warning" data-open="exampleModal1">Sobre</button></p>
+
+                                <div class="reveal" id="exampleModal1" data-reveal>
+                                    <h1>Guia para Documentação</h1>
+                                    <p class="lead">Prof. Dr. Frank J. Affonso.</p>
+                                    <p>Projeto criado com ZURB Foundation 6.6.3.</p>
+                                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <div class="heigh100">                    
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <h2 class="whiteBold">Sistemas Orientados a Objetos 2020</h2>
+                            <h3 class="white">Atividades Remotas</h3>
+                            <h4 class="white">Prof. Frank J. Affonso</h4>
+                        </div>                                           
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!-- TOPO DA PÁGINA-->
+
+        <!-- CORPO DA PÁGINA-->        
+        <div id="corpo">
+            <div class="grid-container">
+                <div class="grid-x grid-margin-x">
+                    <div class="cell small-12 heigh50">
+                        &nbsp;
+                    </div>
+
+                    <div class="cell small-12">
+                        <div class="callout">
+                            <div class="cell small-12">
+                                <h1> Desenvolvendo testes unitários com o framework JUnit 5 </h1>
+                            </div>
+                            <div class="cell small-12">
+                                <hr>                    
+                            </div>
+                            <div class="cell small-12">
+                                <p class="bold"> GRUPO: 0 </p>
+                            </div>                                
+                            <div class="cell small-12">                    
+                                <ul>
+                                    <li><b>Frank José Affonso</b></li>
+                                    <li>José Affonso</li>
+                                    <li>José Frank</li>
+                                </ul>
+                            </div>
+
+                            <div class="cell small-12">
+                                <hr>                    
+                            </div>
+
+                            <div class="cell small-12">
+                                <p class="bold"> Pré-requisitos </p>
+                            </div>                      
+                            <div class="cell small-12">
+                                <ul class="vertical menu">
+                                    <li><a href="https://www.oracle.com/technetwork/pt/java/javase/downloads/index.html">Java 8 ou superior - Versão 11.0.5 LTS</a></li>
+                                    <li><a href="https://netbeans.org/">Netbeans IDE - Versão 11.3</a></li>
+                                    <li><a href="https://junit.org/junit5/">JUnit 5 - Versão 5.6.2</a></li>
+                                </ul>
+                            </div>                            
+                        </div>
+                    </div>
+
+
+                    <!--collout-->
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> Objetivo</h3>
+                        <hr>
+                        <p> 
+                            O objetivo principal deste tutorial é apresentar aos alunos do BCC Unesp (Integral e Noturno) como  o framework 
+                            JUnit 5 pode ser utilizado na elaboração de testes unitários. Esse tutorial visa também mostra como a IDE 
+                            Netbeans 11.3 pode facilitar essa atividade.
+                        </p>
+                        <p>
+                            Como objetivo secundário, e não menos importante, este tutorial visa auxiliar os alunos de ambas as turmas 
+                            na elaboração desse tipo de documento.
+                        </p>
+                    </div>
+
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> O que é o JUnit 5?</h3>
+                        <hr>
+                        <p> O JUnit 5 é composto por módulos de três subprojetos diferentes. </p>
+                        <p> 
+                            JUnit 5 = Plataforma JUnit + JUnit Jupiter + JUnit Vintage </p>
+                        <p> 
+                            A Plataforma JUnit serve como base para o lançamento de estruturas de teste na 
+                            JVM, além de definir a API TestEngine para desenvolver uma estrutura de teste 
+                            executada na plataforma. Além disso, a plataforma fornece um Console Launcher 
+                            para iniciar a plataforma a partir da linha de comando e um Runner baseado no JUnit 4 
+                            para executar qualquer TestEngine na plataforma em um ambiente baseado no JUnit 4. 
+                        </p>
+                        <p> 
+                            JUnit Jupiter é a combinação do novo modelo de programação e modelo de extensão para 
+                            escrever testes e extensões no JUnit 5. O subprojeto Jupiter fornece um TestEngine 
+                            para executar testes baseados na plataforma Jupiter. 
+                        </p>
+                        <p> 
+                            O JUnit Vintage fornece um TestEngine para executar testes baseados no JUnit 3 e JUnit 4 na plataforma.
+                        </p>
+                        <p class="right"> 
+                            <a href="https://junit.org/junit5/docs/current/user-guide/#overview-what-is-junit-5" target="_blank"> (JUNIT, 2020)</a> 
+                        </p>
+                    </div>
+
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> Criando o projeto</h3>
+                        <hr>
+                        <p> Vamos trabalhar neste tutorial com projeto Maven. Para isso, vá ao meu "File" -> "New Project". </p>                        
+
+                        <p> Na janela que se abre, selecione a categoria "Maven" e, em seguida, "Java Application"
+
+                        <p> Preencha os campos conforme a figura abaixo e clique no botão "Finish".<p>
+                            <img src="imagem/imagen-01.png" width="752" height="472" alt="imagen-01"/>
+
+                        <p> Observe a estrutura do projeto criado na IDE:</p>
+                        <img src="imagem/imagen-02.png" width="318" height="211" alt="imagen-02"/>
+
+                        <br>
+                        <br>
+                        <p> Observe agora o conteúdo do arquivo <code>pom.xml</code> do projeto </p>
+                        <textarea name="pom1" rows="15" cols="20">
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.unesp.rc</groupId>
+    <artifactId>JUnit5Tutorial</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+</project></textarea>
+                        <br>
+                        <p> Vamos adicionar a dependência ao projeto. Essa operação pode ser realizada de duas maneiras: </p>
+                        <p> 1 - Pela IDE, clicando com o botão direito sobre a pasta <code>Dependencies</code>; ou</p>
+                        <p> 2 - Pelo site Maven repository.</p>
+                        <br>
+                        <p> 
+                            Os passos dessas operações não serão apresentados neste tutorial. Abaixo segue o 
+                            <code>pom.xml</code> do projeto com as dependências:
+                        </p>
+                        <textarea name="pom2" rows="47" cols="20">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.unesp.rc</groupId>
+    <artifactId>JUnit5Tutorial</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <junit.jupiter.version>5.6.2</junit.jupiter.version>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.22.2</version>
+            </plugin>
+        </plugins>
+    </build>
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-params</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>    
+</project></textarea>
+                    </div>
+
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">
+                        <h3> Criando o exemplo</h3>
+                        <hr>
+                        <p> Vamos agora criar nosso exemplo...</p>
+                        <p> 
+                            Vamos criar uma classe <code> Vector.java </code> no pacote <code>br.unesp.rc.junit5tutorial</code> e implementar dois métodos. O primeiro recebe como parâmetro dois vetores do tipo <code>int</code> e retorno se estes são iguais. Já o segundo método recebe dois números inteiros (que representa o tamanho dos vetores) e retorna se os mesmos são iguais. Veja o código fonte desse implementação abaixo:</p>
+                        <textarea name="java1" rows="60" cols="20">
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.unesp.rc.junit5tutorial;
+
+/**
+ *
+ * @author frank
+ */
+public class Vector {
+
+    private Vector() {
+    }
+
+    /**
+     * Verifica se os vetores são iguais
+     *
+     * @param a
+     * @param b
+     * 
+     * @return verdadeiro ou false
+     */
+    public static boolean equal(int[] a, int[] b) {
+        if ((a == null) || (b == null)) {
+            throw new IllegalArgumentException("null argument");
+        }
+
+        if (a.length != b.length) {
+            return false;
+        }
+
+        for (int i = 0; i < a.length; i++) {
+            if (a[i] != b[i]) {
+                return false;
+            }
+        }
+
+        return true;
+    }
+
+    /**
+     * Verifica se os vetores têm o mesmo tamanho
+     * 
+     * @param a
+     * @param b
+     * 
+     * @return verdadeiro ou falso
+     */
+    public static boolean size(int a, int b) {
+
+        if ((a < 0) || (b < 0)) {
+            throw new IllegalArgumentException("Valores negativos não são permitidos!");
+        }
+
+        return a == b;
+
+    }
+}</textarea>
+                        <p>
+                            O próximo passo agora é criar os casos de testes para verificar se o código 
+                            desenvolvido realmente funciona. 
+                        </p>
+                        <p> 
+                            Para isso, vamos aproveitar um recurso interessante da IDE, que é a geração automática dos testes...
+                        </p>
+                        <p> 
+                            Clique no nome da classe e navegue pelas opções: <code>Navigate -> Go to test/Tested class</code> ou pelo atalho <code>Ctrl+Alt+T.</code>                            
+                        </p>
+                        <p> Na tela que se abre deixe marcada as seguintes opções:</p>
+                        <img src="imagem/imagen-03.png" width="422" height="535" alt="imagen-03"/>
+
+                        <br>
+                        <br>
+                        <p> Observe o conteúdo da classe <code>VectorTest.java</code> </p>
+                        <textarea name="java2" rows="48" cols="20">
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.unesp.rc.junit5tutorial;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
+/**
+ *
+ * @author frank
+ */
+public class VectorTest {
+
+    public VectorTest() {
+    }
+
+    /**
+     * Test of equal method, of class Vector.
+     */
+    @Test
+    public void testEqual() {
+        System.out.println("equal");
+        int[] a = null;
+        int[] b = null;
+        boolean expResult = false;
+        boolean result = Vector.equal(a, b);
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of size method, of class Vector.
+     */
+    @Test
+    public void testSize() {
+        System.out.println("size");
+        int a = 0;
+        int b = 0;
+        boolean expResult = false;
+        boolean result = Vector.size(a, b);
+        assertEquals(expResult, result);
+        fail("The test case is a prototype.");
+    }
+}</textarea>
+                        <br>
+                        <p> 
+                            Agora vamos modificar esses métodos para verificar se o código implementado na 
+                            classe <code>Vector.java</code> realmente funciona.
+                        </p>
+                        <p> Primeiro vamos alterar o método <code>testEqual()</code> como mostrado abaixo:</p>
+                        <textarea name="java3" rows="9" cols="20">
+@DisplayName("Testando se os vetores são iguais")
+    public void testEqual() {
+        System.out.println("equal");
+        int[] a = {1, 2, 3};
+        int[] b = {1, 2, 3};
+        boolean expResult = true;
+        boolean result = Vectors.equal(a, b);
+        assertEquals(expResult, result);
+}</textarea>
+                        <p> IMPORTANTE: Veja que no trecho acima dois vetores IGUAIS foram criados.</p>
+
+                        <p> Depois vamos alterar o método <code>testSize()</code> como mostrado abaixo:</p>
+                        <textarea name="java3" rows="9" cols="20">
+@DisplayName("Testando se os vetores são do mesmo tamanho")
+    public void testSize() {
+        System.out.println("size");
+        int[] a = {1, 2, 3};
+        int[] b = {1, 2, 3, 4};
+        boolean expResult = false;
+        boolean result = Vectors.size(a.length, b.length);
+        assertEquals(expResult, result);
+}</textarea>
+                        <p> IMPORTANTE: Veja que no trecho acima que dois vetores DIFERENTES foram criados.</p>
+                    </div>
+
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">
+                        <h3> Rodando os testes</h3>
+                        <hr>
+                        <p> 
+                            Para executar os testes clique sobre a classe <code>VectorTest.java</code> com o 
+                            botão direito e, em seguida, clique em <code>Test File</code>. Abaixo é apresentada a tela 
+                            de execução dos testes:
+                        </p>
+                        <img src="imagem/imagen-04.png" width="847" height="448" alt="imagen-04"/>
+
+                        <br>
+                        <br>
+                        <p> Observe que os dois testes foram bem sucedidos. No primeiro foram inseridos dois vetores iguais 
+                            e o resultado esperado para esse teste foi definido como <code>true</code>. Já no segundo, o resultado esperado
+                            foi definido como <code>false</code> para dois vetores de tamanho diferente.
+                        </p>
+                        <p> 
+                            Sobre o exemplo apresentado, vale destacar que mais casos de testes devem ser elaborados para comprovar
+                            que a implementação está correta. Aqui foi demonstrado apenas um caso de teste!
+                        </p>
+                        <p>
+                            Cuidado para não gerar apenas o caso de teste que funcione!!! O objetivo desse tutorial foi apresentar o funcionamento do JUnit 5 em uma IDE de desenvolvimento (Netbeans 11.3)
+                        </p>
+
+                        <p> 
+                            Para finalizar este tutorial, dois outros recursos serão comentados: ordem de execução dos testes e habilitação de testes.
+                        </p>
+
+                        <p> 
+                            A ordem dos testes é definida pela anotação <code>@Order(X)</code>, onde X é o número que presenta a ordem dos testes. Além disso,
+                            é necessário anotar a classe de teste com <code>@TestMethodOrder(MethodOrderer.OrderAnnotation.class)</code>. Veja o código completo de
+                            nossa classe de teste.
+                        </p>
+                        <textarea name="java4" rows="55" cols="20">
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package br.unesp.rc.junit5tutorial;
+
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.TestMethodOrder;
+
+/**
+ *
+ * @author frank
+ */
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class VectorTest {
+
+    public VectorTest() {
+    }
+
+    /**
+     * Test of equal method, of class Vector.
+     */
+    @Order(2)
+    @Test
+    @DisplayName("Testando se o vetor são iguais")
+    public void testEqual() {
+        System.out.println("equal");
+        int[] a = {1, 2, 3};
+        int[] b = {1, 2, 3};
+        boolean expResult = true;
+        boolean result = Vector.equal(a, b);
+        assertEquals(expResult, result);
+    }
+
+    /**
+     * Test of size method, of class Vector.
+     */
+    @Order(1)
+    @Test
+    @DisplayName("Testando se os vetores são do mesmo tamanho")
+    public void testSize() {
+        System.out.println("size");
+        int[] a = {1, 2, 3};
+        int[] b = {1, 2, 3, 4};
+        boolean expResult = false;
+        boolean result = Vector.size(a.length, b.length);
+        assertEquals(expResult, result);
+    }
+
+}</textarea>
+                        <p> Veja o resultado da ordem de execução:</p>
+                        <img src="imagem/imagen-05.png" width="779" height="389" alt="imagen-05"/>
+
+                        <br>
+                        <br>
+                        <p> 
+                            Para desabilitar a execução de um teste, a anotação <code>@Disabled</code> deve ser 
+                            inserida no método desejado. Como essa operação é muito simples, a mesma não será apresentada
+                            neste tutorial. Fica por conta dos interessados!!!
+                        </p>
+                        <p> 
+                            Bem, é isso! Até a próxima! <img src="imagem/emoji.png" width="32" height="32" alt="emoji"/>
+                        </p>
+
+                        <div class="cell small-12">
+                            <div class="callout">
+                                <div class="grid-container">
+                                    <div class="grid-x grid-margin-x">
+                                        <div class="cell small-9 bold">Download do projeto completo -> </div>
+                                        <div class="cell small-3">
+                                            <a href="arquivos/JUnit5Tutorial.zip" class="hollow button float-center">Clique aqui</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <!-- RODAPÉ DA PÁGINA-->
+        <div id="rodape">
+            <div  class="fundoCinza5px"> &nbsp; </div>
+            <!-- INSERINDO CARDS..-->
+            <div  class="fundoPreto">
+                <div class="fundoPreto20px">
+
+                </div>
+                <div class="grid-container">
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell small-12">
+                            <p class="whiteBold"> REFERÊNCIAS </p>
+                            <hr>
+                            <p><a class="white" href="https://junit.org/junit5/docs/current/user-guide/">JUnit 5 User Guide</a>  </p>
+                            <p><a class="white" href="https://netbeans.org/kb/docs/java/junit-intro.html">Writing JUnit Tests in NetBeans IDE</a>  </p>
+                            <p>&nbsp;</p>
+                        </div>                        
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <!-- RODAPÉ DA PÁGINA-->
+
+        <script src="../../../foundation-sites-6.6.3-CSS/assets/js/vendor.js"></script>
+        <script src="../../../foundation-sites-6.6.3-CSS/assets/js/foundation.js"></script>
+        <script>
+            $(document).foundation();
+        </script>
+
+    </body>
+</html>

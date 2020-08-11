@@ -1,0 +1,1747 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>:: Sistemas Orientados a Objetos 2020 - Prof. Dr. Frank J. Affonso</title>
+        <link rel="stylesheet" href="../../../foundation-sites-6.6.3-CSS/assets/css/foundation.css" />        
+        <link rel="stylesheet" href="../../../foundation-sites-6.6.3-CSS/assets/css/app.css" />
+    </head>
+
+    <body>
+        <!-- TOPO DA PÁGINA-->
+        <div id="topo">
+            <div class="background">
+                <div class="grid-container">
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell small-10">&nbsp;</div>
+                        <div class="cell small-2">
+                            <p class="right marginTop"><button class="button warning expanded" data-open="exampleModal1">Sobre</button></p>
+
+                            <div class="reveal" id="exampleModal1" data-reveal>
+                                <h1>Guia para Documentação</h1>
+                                <p class="lead">Prof. Dr. Frank J. Affonso.</p>
+                                <p>Projeto criado com ZURB Foundation 6.6.3.</p>
+                                <button class="close-button" data-close aria-label="Close modal" type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cell small-12">
+                            <div class="heigh100">                    
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <h2 class="whiteBold">Sistemas Orientados a Objetos 2020</h2>
+                            <h3 class="white">Atividades Remotas</h3>
+                            <h4 class="white">Prof. Frank J. Affonso</h4>
+                        </div>                                           
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!-- TOPO DA PÁGINA-->
+
+
+        <!-- CORPO DA PÁGINA-->        
+        <div id="corpo">
+            <div class="grid-container">
+                <div class="grid-x grid-margin-x">
+                    <div class="cell small-12 heigh50">
+                        &nbsp;
+                    </div>
+
+                    <div class="cell small-12">
+                        <div class="callout">
+                            <div class="cell small-12">
+                                <h1> Desenvolvendo aplicações Java com Spring Data (JPA e MongoDB) </h1>
+                            </div>
+                            <div class="cell small-12">
+                                <hr>                    
+                            </div>
+                            <div class="cell small-12">
+                                <p class="bold"> GRUPO: 0 </p>
+                            </div>                                
+                            <div class="cell small-12">                    
+                                <ul>
+                                    <li><b>Frank José Affonso</b></li>
+                                    <li>José Affonso</li>
+                                    <li>José Frank</li>
+                                </ul>
+                            </div>
+
+                            <div class="cell small-12">
+                                <hr>                    
+                            </div>
+
+                            <div class="cell small-12">
+                                <p class="bold"> Pré-requisitos </p>
+                            </div>                      
+                            <div class="cell small-12">
+                                <ul class="vertical menu">
+                                    <li><a href="https://www.oracle.com/technetwork/pt/java/javase/downloads/index.html">Java 8 ou superior - Versão 11.0.5 LTS</a></li>
+                                    <li><a href="https://netbeans.org/">Netbeans IDE - Versão 11.3</a></li>
+                                    <li><a href="https://junit.org/junit5/">JUnit 5 - Versão 5.6.2</a></li>
+                                </ul>
+                            </div>                            
+                        </div>
+                    </div> 
+
+                    <!--collout-->
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> Objetivo</h3>
+                        <hr>
+                        <p> 
+                            O objetivo principal deste tutorial é apresentar aos alunos do BCC 
+                            Unesp (Integral e Noturno) como o Framework Spring pode ser utilizado
+                            na construção de aplicações que envolvem bases de dados relacionais e
+                            NoSQL. Como objetivo secundário, porém não menos importante, este 
+                            tutorial visa auxiliar os alunos de ambas as turmas na elaboração 
+                            desse tipo de documento (TUTORIAL).
+                        </p>
+                    </div>
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> Falando um pouco do Spring</h3>
+                        <hr>
+                        <h4>O que é Spring?</h4>
+                        <p> 
+                            Em poucas palavras, Spring é um framework abrangente que fornece um 
+                            modelo de programação e configuração para aplicativos corporativos 
+                            modernos baseados em Java. Um elemento importante desse framework é 
+                            o suporte de infraestrutura no nível do aplicativo, pois o Spring 
+                            se concentra no “encanamento” das aplicações corporativas, abstraindo, 
+                            automatizado e facilitando o de desenvolvimento de tais aplicações. 
+                            Dessa forma, as equipes de desenvolvimento podem “canalizar” seus 
+                            esforços na lógica de negócios. Maiores detalhes podem ser obtidos em
+                            <a href="https://spring.io/projects/spring-framework" target="_blank">Spring
+                                Framework</a>.                           
+                        </p>
+
+                        <p>
+                            Dentre os projetos existentes no ecossistema Spring, este tutorial 
+                            abordará o <a href="https://spring.io/projects/spring-data" target="_blank">Spring
+                                Data</a>. O principal objetivo deste projeto é fornecer um modelo de 
+                            programação baseado em Spring que permite o acesso a dados, mantendo 
+                            as características especiais do armazenamento de dados subjacente. 
+                            O Spring Data facilita o uso de tecnologias de acesso a dados, 
+                            bancos de dados relacionais e não relacionais, estruturas de redução
+                            de mapas e serviços de dados baseados em nuvem. Dentre os módulos 
+                            existentes, este tutorial abordará dois, a saber:
+                        </p>
+                        <ul>
+                            <li>
+                                <b>Spring Data JPA:</b> este módulo permite o desenvolvimento para camadas de 
+                                acesso a dados baseadas em JPA, abstraindo e facilitando a codificação 
+                                dessa camada. Dessa forma, pode-se dizer que esse módulo facilita a 
+                                criação de aplicativos com tecnologia Spring que usam tecnologias de 
+                                acesso a dados para banco de dados relacionais.
+                            </li>
+                            <li>
+                                <b>Spring Data MongoDB:</b> este módulo fornece integração com o banco de 
+                                dados de documentos MongoDB. Resumidamente, as principais funcionalidades 
+                                do Spring Data MongoDB podem ser sintetizadas no modelo POJO (do inglês, 
+                                <i>Plain Old Java Object</i>), o qual é utilizado para interagir com um 
+                                MongoDB DBCollection e permitir a camada de acesso a dados no estilo 
+                                Repositório seja elaborada.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> Apresentando o Exemplo</h3>
+                        <hr>
+                        <p> 
+                            Para mostrar a funcionalidade do framewok Spring Data tanto para JPA 
+                            quanto para MongoDB, o exemplo utilizado no TUTORIAL JDBC 
+                            (<a href="../tutorial2/tutorial2.html" target="_blank">AQUI</a>) será 
+                            utilizado. Veja a especificação abaixo:
+                        </p>
+
+                        <div class="callout fundoEspRequisitos">
+                            <p>
+                                O sistema deve permitir a inclusão, alteração e remoção de clientes do 
+                                sistema TUTORIAL-COM-JDBC com os seguintes atributos: nome, endereço (rua, número, bairro, 
+                                cep, cidade, estado), contato (telefone residencial, telefone comercial, 
+                                celular, e-mail), cpf (para pessoa física), data de nascimento e cnpj 
+                                (para pessoa jurídica). Um cliente pode ter mais de um endereço para 
+                                correspondência. Um cliente tem apenas um contato.
+                            </p>
+                        </div>
+                        <p>
+                            Com base na especificação apresentada, o seguinte diagrama de classes foi elaborado:
+                        </p>
+                        <img class="float-center" src="imagem/imagem-01.png" width="689" height="547" alt="imagem-01"/>
+
+                        <br>
+                        <br>
+                        <p>
+                            Embora o framework automatize a modelagem do banco de dados relacional, os conceitos 
+                            apresentados nas VIDEOAULAS 4 e 5 serão utilizados para entender como ocorrer o 
+                            mapeamento o modelo de classe para o modelo relacional por meio de anotações.
+                        </p>
+
+                        <p>
+                            Para desenvolver o exemplo apresentado, este tutorial será apresentado em duas partes. A 
+                            primeira mostra o desenvolvimento utilizando Spring Data JPA. Já a segunda mostra o desenvolvimento
+                            do mesmo exemplo utilizando Spring Data MongoDB, sendo os passos apresentados na primeira parte
+                            omitidos para evitar redundância de informações.
+                        </p>
+                    </div>
+
+                    <div class="cell small-12">
+                        <div class="callout fundoAzul">
+                            <h3 class="center">
+                                PARTE 1: desenvolvimento utilizando Spring Data JPA
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="cell small-12">
+                        <h3> Criando o projeto</h3>
+                        <hr>
+                        <p> 
+                            Pelo site oficial <a href="https://spring.io" target="_blank">(https://spring.io/)</a>, o 
+                            Spring disponibiliza para os desenvolvedores os seguintes recursos:                            
+                        </p>
+                        <ul>
+                            <li>
+                                <b>Spring Too Suite 4</b>, uma ferramenta baseada na IDE Eclipse para desenvolvimento 
+                                de aplicações baseadas em seu ecossistema.
+                            </li>
+                            <li>
+                                <b>Spring initializr</b>, um website <a href="https://start.spring.io" target="_blank">(https://start.spring.io/)</a> 
+                                que permite a criação de projetos.
+                            </li>
+                            <li>
+                                <b>NOTA.</b> IDEs de desenvolvimento como Netbenas e IntelliJ permitem instalação de plugins para trabalhar com o framework.
+                            </li>
+                        </ul>
+
+                        <p>
+                            Para o desenvolvimento deste tutorial, a segunda opção (<b>Spring initializr</b>) será utilizada. 
+                            Sendo assim, acesse o website e configure um projeto como indicado na figura abaixo:
+                        </p>
+
+                        <img class="float-center" src="imagem/imagem-02.png " width="1031" height="937" alt="imagem-02"/>
+
+                        <br>
+                        <br>
+                        <p>
+                            <b>IMPORTANTE:</b> 
+                        </p>
+                        <p>
+                            Observe as áreas envolvidas ou sublinhadas em vermelho. Em relação aos módulos de 
+                            dependência, o <b>Spring Boot DevTools</b> foi selecionado para que as alterações de código sejam 
+                            refletidas no projeto em execução, sem que a mesma tenha que ser reinicializada. O <b>Lombok</b> foi 
+                            selecionado para evitar que código, como métodos de acesso, sejam escritos nas classes. O <b>Spring 
+                                Data JPA</b> foi selecionado para trabalharmos como a persistência de dados (API JPA) no banco de 
+                            dados relacional MySQL. Por esse motivo que o <b>MySQL Driver</b> também foi selecionado. Por fim, 
+                            já pensando um pouco no futuro, o <b>Spring Web</b> foi selecionado para que uma API possa ser elaborada.
+                        </p>                     
+                        <div class="cell small-12">                        
+                            <div class="grid-container">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-9 bold"> </div>
+                                    <div class="cell small-3">
+                                        <a href="arquivos/springtutorial.zip" class="hollow button expanded">Download do projeto .zip</a>
+                                    </div>
+                                </div>
+                            </div>                        
+                        </div>
+                    </div>
+
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> Implementação do exemplo</h3>
+                        <hr>
+
+                        <h4>Preparação do projeto e camada entity</h4>
+                        <p> 
+                            Para inciarmos o projeto na IDE Netbeans, os seguintes passos devem ser executados:
+                        </p>
+                        <ul>
+                            <li>
+                                Criação de um database chamado <code>springtutorialjpa</code> na ferrramenta 
+                                MySQL Workbench. Em caso de dúvida, assista a VÍDEO TUTORIAL que está no TÓPICO 5.
+                            </li>
+                            <li>
+                                <p>
+                                    Descompacte o arquivo <code>springtutorial.zip</code> em um local de sua 
+                                    preferência. Em seguida, abra o projeto na IDE como indicado abaixo:
+                                </p>
+                                <p>
+                                    <img src="imagem/imagem-03.png" width="670" height="342" alt="imagem-03"/> 
+                                </p>
+                            </li>                           
+                            <li>
+                                <p>
+                                    Agora, abra o arquivo <code>application.properties</code> que está na pasta <code>Other Sources</code>. 
+                                    Vá navegando pelas pastas até encontrá-lo e insira as seguintes informações:
+                                </p>
+
+                                <div class="callout sourceCode">
+                                    <pre>
+spring.datasource.url=jdbc:mysql://localhost:3306/springtutorialjpa
+spring.datasource.username=administrator
+spring.datasource.password=Mysql!server.57
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+spring.jpa.database-platform=org.hibernate.dialect.MySQL5Dialect
+spring.jpa.generate-ddl=true
+spring.jpa.hibernate.ddl-auto=update</pre>
+                                </div>
+                            </li>
+                            <li>
+                                <p>
+                                    Em seguida, clique no botão <code>Clear and Build Project</code> para que o download das 
+                                    dependências do projeto seja realizado. Se tudo der certo, a seguinte mensagem será 
+                                    exibida na aba de Output da IDE.
+                                </p>
+                                <div class="callout sourceCode">
+                                    <pre>
+------------------------------------------------------------------------
+BUILD SUCCESS
+------------------------------------------------------------------------
+Total time: 29.110 s
+Finished at: 2020-07-14T14:59:00-03:00
+Final Memory: 38M/137M
+------------------------------------------------------------------------</pre>
+                                </div>
+                            </li>
+                        </ul>
+
+                        <br>
+                        <p>
+                            Agora vamos começar a codificação das classes do nosso exemplo, conforme exposto no modelo UML 
+                            (diagrama de classes) acima. Para isso, o framework Lombok será utilizado para 
+                            minimizar a tarefa de codificação. As classes são, geralmente, anotadas com <code>@Getter, 
+                                @Setter, @EqualsAndHashCode, @ToString</code> para que os métodos 
+                            <code>getters</code>, <code>setter</code>, <code>equals</code>, 
+                            <code>hashCode</code> e <code>toString</code>. 
+                        </p>
+
+                        <p>
+                            Veja o código da classe <code>Acesso.java</code>
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Acesso <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String usuario;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String senha;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Acesso() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>                        
+
+                        <p>
+                            Veja o código da classe <code>Contato.java</code>
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Contato <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>long</span> idContato;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String telefoneResidencial;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String telefoneComercial;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String celular;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String email;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Contato() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+
+                        <p>
+                            Veja o código da classe <code>Endereco.java</code>
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Endereco <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>long</span> idEndereco;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String rua;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>int</span> numero;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String bairro;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cep;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cidade;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String estado;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Endereco() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+                        <p>
+                            Veja o código da classe <code>Pessoa.java</code>
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.ArrayList;
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.List;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Pessoa <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>long</span> idPessoa;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String nome;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> List&lt;Endereco&gt; endereco;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> Acesso acesso;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> Contato contato;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Pessoa() <span style='font-weight:bold;color:#D3171B'>{</span>
+        this.endereco = <span style='font-weight:bold;color:#7B0052;'>new</span> ArrayList&lt;&gt;();
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> setEndereco(Endereco endereco) <span style='font-weight:bold;color:#D3171B'>{</span>
+        this.endereco.add(endereco);
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+                        <p>
+                            Veja o código da classe <code>Fisica.java</code>. Observe que a anotação 
+                            <code>@EqualsAndHashCode</code> teve o parâmetro <code>callSuper = false</code> 
+                            adicionado para que os atributos da superclasse <code>Pessoa</code> não 
+                            seja utilizado. Já a anotação <code>@ToString</code> teve dois parâmetros 
+                            adicionados <code>callSuper=true, includeFieldNames=true</code> para que o 
+                            método da superclasse seja chamado com a inclusão dos atributos.
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.Date;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false, exclude = <span style='font-weight:bold;color:#D3171B'>{</span><span style='color:#2A00FF'>"dataNascimento"</span><span style='font-weight:bold;color:#D3171B'>}</span>)
+@ToString(callSuper=true, includeFieldNames=<span style='font-weight:bold;color:#7B0052;'>true</span>)
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Fisica <span style='font-weight:bold;color:#7B0052;'>extends</span> Pessoa <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cpf;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> Date dataNascimento;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Fisica() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>    
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+                        <p>
+                            Veja o código da classe <code>Juridica.java</code>
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = <span style='font-weight:bold;color:#7B0052;'>false</span>)
+@ToString(callSuper=true, includeFieldNames=<span style='font-weight:bold;color:#7B0052;'>true</span>)
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Juridica <span style='font-weight:bold;color:#7B0052;'>extends</span> Pessoa <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cnpj;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Juridica() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+
+                        <p>
+                            Vamos executar o projeto?
+                        </p>
+                        <p>
+                            Para isso, devemos fazer algumas alterações na classe <code>SpringtutorialApplication</code>, a saber: 
+                        </p>
+                        <ul>
+                            <li>
+                                Fazer com que essa classe implemente a interface <code>CommandLineRunner</code>.
+                            </li>
+                            <li>
+                                Rescrever o método <code>run</code> dessa interface.
+                            </li>
+                        </ul>
+
+                        <p>
+                            Veja o código da classe <code>SpringtutorialApplication.java</code>
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorial.entity.Fisica;
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorial.utils.InstanceGenerator;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.boot.CommandLineRunner;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.boot.SpringApplication;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> SpringtutorialApplication <span style='font-weight:bold;color:#7B0052;'>implements</span> CommandLineRunner <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>void</span> main(String[] args) <span style='font-weight:bold;color:#D3171B'>{</span>
+        SpringApplication.run(SpringtutorialApplication.class, args);
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    @Override
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> run(String... args) <span style='font-weight:bold;color:#7B0052;'>throws</span> Exception <span style='font-weight:bold;color:#D3171B'>{</span>
+        Fisica entity = InstanceGenerator.getPessoaFisica(<span style='color:#2A00FF'>"111.222.333-44"</span>, <span style='color:#2A00FF'>"user1"</span>);
+        System.out.println(<span style='color:#2A00FF'>"\n"</span> + entity + <span style='color:#2A00FF'>"\n"</span>);
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>                            
+                        </div>
+
+                        <p>
+                            Veja o resultado da execução (arquivo organizado), que mostra os dados do objeto instanciado:
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+Fisica(
+    super=Pessoa(idPessoa=0, nome=Juca Chaves, 
+    endereco=[
+        Endereco(idEndereco=0, rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), 
+        Endereco(idEndereco=0, rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), 
+        Endereco(idEndereco=0, rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)
+    ], 
+    acesso=Acesso(usuario=user1, senha=deitel), 
+    contato=Contato(idContato=0, telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, 
+                    email=juca@chaves.com.br)), 
+    cpf=111.222.333-44, dataNascimento=Tue Jul 14 18:35:00 BRT 2020
+)</pre>
+                        </div>
+
+                        <h4>Anotando as classes</h4>
+                        <p>
+                            Para que as classes de nosso exemplo possam ser persistidas no banco dados, anotações 
+                            JPA devem inseridas em cadas uma delas. Vale destacar que a execução desse passo 
+                            utiliza os conceitos apresentados na VIDEOULA – TÓPICO 5. Inicialmente, cada classe 
+                            será modificada para implementar a interface <code>java.io.Serializable</code> e 
+                            declarar o atributo <code>serialVersionUID</code>, conforme recomendado pela 
+                            especificação JavaBean. A classe <code>Acesso.java</code> foi anotada como 
+                            <code>@Embeddable</code> para ser tornar entidade embutida de Pessoa. Os atributos 
+                            foram anotados com <code>@Column</code> para que os referidos sejam inseridos na 
+                            tabela <code>Pessoa</code>. A listagem abaixo mostra o código da classe 
+                            <code>Acesso.java</code>.
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.io.Serializable;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Column;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Embeddable;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Embeddable
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Acesso <span style='font-weight:bold;color:#7B0052;'>implements</span> Serializable<span style='font-weight:bold;color:#D3171B'>{</span>
+
+	<span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>final</span> <span style='font-weight:bold;color:#7B0052;'>long</span> serialVersionUID = 1L;
+
+	@Column(name = <span style='color:#2A00FF'>"acesso_usuario"</span>)
+	<span style='font-weight:bold;color:#7B0052;'>private</span> String usuario;
+	
+	@Column(name = <span style='color:#2A00FF'>"acesso_senha"</span>)
+	<span style='font-weight:bold;color:#7B0052;'>private</span> String senha;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Acesso() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+                        <p>
+                            A classe <code>Contato.java</code> foi anotada como <code>@Entity(name = "Contato")</code> 
+                            para definir o nome da tabela no banco de dados. O atributo <code>idContato</code> foi 
+                            anotado com <code>@Id</code> e <code>@GeneratedValue(strategy = GenerationType.AUTO)</code> 
+                            para definir que esse atributo é uma chave no banco de dados e a estratégia de incremento utilizada. 
+                            A listagem abaixo mostra o código da classe <code>Contato.java</code>.
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.io.Serializable;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Entity;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.GeneratedValue;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.GenerationType;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Id;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Entity(name = <span style='color:#2A00FF'>"Contato"</span>)
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Contato <span style='font-weight:bold;color:#7B0052;'>implements</span> Serializable <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>final</span> <span style='font-weight:bold;color:#7B0052;'>long</span> serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>long</span> idContato;
+    
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String telefoneResidencial;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String telefoneComercial;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String celular;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String email;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Contato() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+                        <p>
+                            Analogamente, a classe <code>Endereco.java</code> foi anotada com as mesmas anotações 
+                            de <code>Contato.java</code>. Veja a listagem abaixo:
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.io.Serializable;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Entity;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.GeneratedValue;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.GenerationType;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Id;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Entity(name = <span style='color:#2A00FF'>"Endereco"</span>)
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Endereco <span style='font-weight:bold;color:#7B0052;'>implements</span> Serializable <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>final</span> <span style='font-weight:bold;color:#7B0052;'>long</span> serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>long</span> idEndereco;
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String rua;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>int</span> numero;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String bairro;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cep;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cidade;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String estado;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Endereco() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+                        <p>
+                            As classes de nível de hierarquia inferior, <code>Fisica.java</code> e <code>Juridica.java</code>, 
+                            foram anotadas com <code>@Entity</code> e <code>@Table</code>. Observe que esta última define os 
+                            nomes das tabelas no banco de dados (<code>name = "PessoaFisica"</code> e <code>name = "PessoaJuridica"</code>) 
+                            e as restrições de unicidade para os campos <code>cpf</code> e <code>cnpj</code>. Dessa forma, objetos de mesmo
+                            cpf ou cnpj não poderão ser persistido no banco de dados. A listagem abaixo mostra o código da classe
+                            <code>Fisca.java</code>.
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>                                
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.Date;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Entity;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Table;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Temporal;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.TemporalType;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.UniqueConstraint;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Entity
+@Table(
+    name = <span style='color:#2A00FF'>"PessoaFisica"</span>,
+    uniqueConstraints =  @UniqueConstraint(
+        name = <span style='color:#2A00FF'>"unique_cpf"</span>,
+        columnNames = <span style='font-weight:bold;color:#D3171B'>{</span>
+            <span style='color:#2A00FF'>"cpf"</span>
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+    )
+)
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false, exclude = <span style='font-weight:bold;color:#D3171B'>{</span><span style='color:#2A00FF'>"dataNascimento"</span><span style='font-weight:bold;color:#D3171B'>}</span>)
+@ToString(callSuper = true, includeFieldNames = <span style='font-weight:bold;color:#7B0052;'>true</span>)
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Fisica <span style='font-weight:bold;color:#7B0052;'>extends</span> Pessoa <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>final</span> <span style='font-weight:bold;color:#7B0052;'>long</span> serialVersionUID = 1L;
+
+    
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cpf;
+
+    @Temporal(TemporalType.TIMESTAMP)
+    <span style='font-weight:bold;color:#7B0052;'>private</span> Date dataNascimento;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Fisica() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+                        <p>
+                            A listagem abaixo mostra o código da classe <code>Juridica.java</code>.
+                        </p>
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Entity;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Table;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.UniqueConstraint;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Entity
+@Table(
+    name = <span style='color:#2A00FF'>"PessoaJuridica"</span>,
+    uniqueConstraints =  @UniqueConstraint(
+        name = <span style='color:#2A00FF'>"unique_cnpj"</span>,
+        columnNames = <span style='font-weight:bold;color:#D3171B'>{</span>
+            <span style='color:#2A00FF'>"cnpj"</span>
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+    )
+)
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = <span style='font-weight:bold;color:#7B0052;'>false</span>)
+@ToString(callSuper = true, includeFieldNames = <span style='font-weight:bold;color:#7B0052;'>true</span>)
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Juridica <span style='font-weight:bold;color:#7B0052;'>extends</span> Pessoa <span style='font-weight:bold;color:#D3171B'>{</span>
+    
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>final</span> <span style='font-weight:bold;color:#7B0052;'>long</span> serialVersionUID = 1L;
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cnpj;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Juridica() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+                        <p>
+                            Por fim, chegamos na classe mais “importante” do nosso exemplo, pelos atributos de 
+                            relacionamento nela contidos. O atributo <code>endereco</code> foi anotado duas 
+                            anotações, a saber:
+                        </p>
+                        <ul>
+                            <li>
+                                <code>OneToMany</code>, como o nome diz, faz o mapeamento de um para muito.
+                                <ul>
+                                    <li>
+                                        O significado de <code>CascadeType.ALL</code> é que a persistência deve ser propagada 
+                                        em cascata em todas as operações do EntityManager (PERSIST, REMOVE, REFRESH, MERGE, 
+                                        DETACH) e entidades relacionadas.
+                                    </li>
+                                    <li>
+                                        O significado de <code>orphanRemoval = true</code> é que as entidades do relacionamento
+                                        que ficaram soltas, quando a entidade detentora é excluída, devem ser excluídas.
+                                    </li>
+                                    <li>
+                                        O significado de <code>fetch = FetchType.EAGER</code> é que o carregamento das entidades
+                                        deve ser realizado, mesmo que estas não forem utilizadas.                                        
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li>
+                                <code>@JoinColumn</code>, indica o nome do atributo de relacionamento (chave estrangeira) na tabela
+                                que possui o relacionamento muitos.
+                            </li>
+                        </ul>
+
+                        <p>
+                            O atributo <code>contato</code> foi anotado duas anotações, a saber:
+                        </p>
+
+                        <ul>
+                            <li>
+                                <code>OneToOne</code>, como o nome diz, faz o mapeamento de um para um.                                
+                            </li>
+                            <li>
+                                <code>@JoinColumn</code>, indica o nome do atributo de relacionamento na tabela
+                                que representa a classe (entidade) em que ocorreu a anotação.
+                            </li>
+                        </ul>
+
+
+                        <div class="callout sourceCode">
+                            <pre >
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.io.Serializable;
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.ArrayList;
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.List;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.CascadeType;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Entity;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.FetchType;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.GeneratedValue;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.GenerationType;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Id;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.Inheritance;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.InheritanceType;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.JoinColumn;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.OneToMany;
+<span style='font-weight:bold;color:#7B0052;'>import</span> javax.persistence.OneToOne;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Entity(name = <span style='color:#2A00FF'>"Pessoa"</span>)
+@Inheritance(strategy = InheritanceType.JOINED)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Pessoa <span style='font-weight:bold;color:#7B0052;'>implements</span> Serializable <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>final</span> <span style='font-weight:bold;color:#7B0052;'>long</span> serialVersionUID = 1L;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>long</span> idPessoa;
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String nome;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true,
+            fetch = FetchType.EAGER)
+    @JoinColumn(name = <span style='color:#2A00FF'>"pessoa_idpessoa"</span>)
+    <span style='font-weight:bold;color:#7B0052;'>private</span> List&lt;Endereco&gt; endereco;
+    
+    <span style='font-weight:bold;color:#7B0052;'>private</span> Acesso acesso;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = <span style='color:#2A00FF'>"contato_idContato"</span>)
+    <span style='font-weight:bold;color:#7B0052;'>private</span> Contato contato;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Pessoa() <span style='font-weight:bold;color:#D3171B'>{</span>
+        this.endereco = <span style='font-weight:bold;color:#7B0052;'>new</span> ArrayList&lt;&gt;();
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> setEndereco(Endereco endereco) <span style='font-weight:bold;color:#D3171B'>{</span>
+        this.endereco.add(endereco);
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+
+
+                        <h4>Implementando a camada repository</h4>
+                        <p>
+                            Uma vez que nossas classes (ou entidades) estão prontas, podemos iniciar a implementação da camada
+                            <code>repository</code>. Para isso, crie um pacote de mesmo nome da camada no pacote raiz 
+                            (<code>br.unesp.rc.springtutorial</code>) de nosso exemplo. Em seguida, crie uma interface
+                            chamada <code>FisicaRepository</code>, que deve estender a interface e indicar o tipo de 
+                            objeto que manipula e o tipo de chave (<code>JpaRepository&lt;Fisica, Long&gt;</code>). A listagem 
+                            abaixo mostra o código fonte do repositório criado.
+                        </p>
+
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.repository;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorial.entity.Fisica;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.data.jpa.repository.JpaRepository;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>interface</span> FisicaRepository <span style='font-weight:bold;color:#7B0052;'>extends</span> JpaRepository&lt;Fisica, Long&gt; <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    Fisica findByCpf(String cpf);
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+
+                        <p>
+                            Observe que apenas uma assinatura foi elaborada! Vale ressaltar que essa assinatura segue o padrão do framework (find + By + NOME-DO-CAMPO).
+                        </p>
+
+                        <p>
+                            Vamos executar o projeto para ver o que acontece?
+                        </p>
+                        <p>
+                            Se fizermos isso, o Spring Data JPA irá criar as tabelas no banco de dados, conforme figura abaixo.
+                            Observe também que a uma sequence chamada <code>hibernate_sequence</code> foi criada para gerenciar
+                            os identificadores dos objetos (<code>@GeneratedValue(strategy = GenerationType.AUTO)</code>).
+                        </p>
+                        <img src="imagem/imagem-05.png" width="431" height="283" alt="imagem-05"/>
+
+                        <br>
+                        <br>
+                        <h4>Implementando a camada service</h4>
+                        <p>                            
+                            Agora vamos iniciar a implementação da camada <code>service</code>. Para isso, vamos criar 
+                            um pacote de mesmo nome da camada no pacote raiz (<code>br.unesp.rc.springtutorial</code>). 
+                            Em seguida, crie uma classe chamada <code>FisicaService</code> para abstrair as operações 
+                            do repositório. A listagem abaixo mostra o código fonte dessa classe.
+                        </p>
+
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.service;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorial.entity.Fisica;
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorial.repository.FisicaRepository;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.beans.factory.annotation.Autowired;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.stereotype.Component;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Component
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> FisicaService <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    @Autowired
+    <span style='font-weight:bold;color:#7B0052;'>private</span> FisicaRepository repository;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> FisicaService() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Fisica save(Fisica entity) <span style='font-weight:bold;color:#D3171B'>{</span>
+        Fisica persistedEntity = <span style='font-weight:bold;color:#7B0052;'>null</span>;
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            persistedEntity = repository.save(entity);
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>return</span> persistedEntity;
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Fisica findByCpf(String cpf) <span style='font-weight:bold;color:#D3171B'>{</span>
+        Fisica insertedEntity = <span style='font-weight:bold;color:#7B0052;'>null</span>;
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            insertedEntity = repository.findByCpf(cpf);
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>return</span> insertedEntity;
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> delete(Fisica entity) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            repository.delete(entity);
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Fisica update(Fisica entity) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+        Fisica persistedEntity = <span style='font-weight:bold;color:#7B0052;'>null</span>;
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            persistedEntity = repository.save(entity);
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>return</span> persistedEntity;
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> List&lt;Fisica&gt; findAll() <span style='font-weight:bold;color:#D3171B'>{</span>
+        List&lt;Fisica&gt; list = <span style='font-weight:bold;color:#7B0052;'>null</span>;
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            list = <span style='font-weight:bold;color:#7B0052;'>new</span> ArrayList&lt;&gt;();
+            list = repository.findAll();
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>return</span> list;
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+
+                        <p>
+                            Analisando essa classe, duas anotações podem ser detalhadas
+                        </p>
+
+                        <ul>
+                            <li>
+                                <code>@Component</code>, esta anotação serve para indicar ao framework que classe é 
+                                um bean que deverá ser gerenciado pela implementação de IoC (do inglês, <i>Inversion
+                                    of Control</i>) Container do Spring.
+                            </li>
+                            <li>
+                                <code>@Autowired</code>, esta anotação indica ao framework que o atributo foi injetado
+                                na classe e deve ser gerenciado por ele.
+                            </li>
+                        </ul>
+
+                        <p>
+                            Por fim, vale destacar que o desenvolvimento dessa camada mostra que os métodos fornecidos 
+                            pelo repositório foram utilizados. 
+                        </p>
+
+                    </div>
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+
+                    <div class="cell small-12">                                
+                        <h3> Escrevendo os casos de teste</h3>
+                        <hr>
+                        <p> 
+                            Vamos gerar a classe de teste para a classe <code>FisicaService</code>. Clique no nome da 
+                            classe e navegue pelas opções: <code>Navigate -> Go to test/Tested class</code> ou pelo 
+                            atalho <code>Ctrl+Alt+T.</code> Aceite as opções apresentadas e clique em OK. Altere o corpo
+                            dos métodos de teste conforme mostra a listagem abaixo:
+                        </p>
+
+                        <div class="callout sourceCode">
+                            <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorial.service;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorial.entity.Fisica;
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorial.utils.InstanceGenerator;
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.List;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.junit.jupiter.api.Test;
+<span style='font-weight:bold;color:#7B0052;'>import</span> <span style='font-weight:bold;color:#7B0052;'>static</span> org.junit.jupiter.api.Assertions.*;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.junit.jupiter.api.Disabled;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.junit.jupiter.api.DisplayName;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.beans.factory.annotation.Autowired;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.boot.test.context.SpringBootTest;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@SpringBootTest
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> FisicaServiceTest <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> Fisica entity;
+
+    @Autowired
+    <span style='font-weight:bold;color:#7B0052;'>private</span> FisicaService fs = <span style='font-weight:bold;color:#7B0052;'>new</span> FisicaService();
+    
+    @Test
+    @DisplayName(<span style='color:#2A00FF'>"FisicaService.save(Fisica)"</span>)
+    <span style='font-weight:bold;color:#7B0052;'>void</span> testSave() <span style='font-weight:bold;color:#D3171B'>{</span>
+        entity = InstanceGenerator.getPessoaFisica(<span style='color:#2A00FF'>"222.333.444-55"</span>, <span style='color:#2A00FF'>"user1"</span>);
+        System.out.println(entity);
+        
+        Fisica f = fs.save(entity);
+        System.out.println(<span style='color:#2A00FF'>"----------------------------------------"</span>);
+        System.out.println(f);
+        System.out.println(<span style='color:#2A00FF'>"----------------------------------------"</span>);
+        
+        assertEquals(entity, f);
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+    
+    @Test
+    @DisplayName(<span style='color:#2A00FF'>"FisicaService.findByCpf(cpf)"</span>)
+    <span style='font-weight:bold;color:#7B0052;'>void</span> testFindByCpf() <span style='font-weight:bold;color:#D3171B'>{</span>
+        entity = InstanceGenerator.getPessoaFisica(<span style='color:#2A00FF'>"222.333.444-55"</span>, <span style='color:#2A00FF'>"user1"</span>);
+
+        String cpf = <span style='color:#2A00FF'>"222.333.444-55"</span>;
+        Fisica f = fs.findByCpf(cpf);
+        System.out.println(<span style='color:#2A00FF'>"----------------------------------------"</span>);
+        System.out.println(f);
+        System.out.println(<span style='color:#2A00FF'>"----------------------------------------"</span>);       
+        
+        assertEquals(entity, f);
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+    
+    @Disabled
+    @Test
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testDelete() <span style='font-weight:bold;color:#D3171B'>{</span>
+        <span style='color:#3F7F5F'>//...
+</span>    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    @Disabled
+    @Test
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testUpdate() <span style='font-weight:bold;color:#D3171B'>{</span>
+        <span style='color:#3F7F5F'>//...
+</span>    <span style='font-weight:bold;color:#D3171B'>}</span>
+    
+    @Test
+    @DisplayName(<span style='color:#2A00FF'>"FisicaService.findAll()"</span>)
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> testFindAll() <span style='font-weight:bold;color:#D3171B'>{</span>
+        System.out.println(<span style='color:#2A00FF'>"findAll"</span>);        
+        
+        Fisica expResult = <span style='font-weight:bold;color:#7B0052;'>null</span>;
+        List&lt;Fisica&gt; result = fs.findAll();
+        assertNotEquals(expResult, result);        
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                        </div>
+
+                        <br>
+                        <p> 
+                            Observe que a classe <code>FisicaServiceTest</code> foi anotada com <code>@SpringBootTest</code> 
+                            para sinalizar ao framework que essa é uma classe de teste. 
+                        </p>
+                        <p> 
+                            Utilizando a anotação <code>@Disabled</code> execute os testes elaborados. Para fins de ilustração, o teste 
+                            para a inserção de uma pessoa física será apresentado. Para isso, vá até a pasta de projeto <code>Test Packages</code>,
+                            clique com o botão direito na classe <code>FisicaServiceTest.java</code> e na opção <code>Test file</code>. Veja o resultado
+                            na imagem abaixo:
+                        </p>
+                        <img src="imagem/imagem-06.png" width="600" height="356" alt="imagem-06"/>
+
+                        <br>
+                        <br>
+                        <p> 
+                            Olha ele aqui novamente (O iceberg)! O Spring Data JPA é um framework muito poderoso e possui vários outros
+                            recursos que não foram explorados neste tutorial. Espera-se que o conteúdo apresentado (a ponta do iceberg) 
+                            possa estimular seu apresendizado e utilização em sistemas de maior escala.
+                        </p>
+                        <img class = "float-center" src="imagem/imagem-07.png" width="960" height="540" alt="imagem-07"/>                        
+
+                        <br>
+                        <br>                        
+                    </div>
+
+                    <div class="cell small-12">
+                        <div class="callout fundoAzul">
+                            <h3 class="center">
+                                PARTE 2: desenvolvimento utilizando Spring Data MongoDB
+                            </h3>
+                        </div>
+                    </div>
+
+                    <div class="cell small-12">
+                        <h3> Criando o projeto</h3>
+                        <hr>
+                        <p> 
+                            Crie um projeto para uma aplicação MongoDB, como mostra a figura abaixo:
+                        </p>
+                        <img class="float-center" src="imagem/imagem-08.png" width="1138" height="905" alt="imagem-08"/>
+
+                        <br>
+                        <br>
+                        <p>
+                            Descompacte o projeto e abra o mesmo na IDE Netbeans. Em seguida, copie as classes do projeto
+                            anterior <code>springtutorial</code> para este, respeitando a organização de pacotes apresentada 
+                            na primeira parte. Remova todas anotações JPA e ajuste a importação das bibliotecas. A figura 
+                            abaixo mostra a organização do projeto.
+                        </p>
+                        <img src="imagem/imagem-09.png" width="966" height="1011" alt="imagem-09"/>
+
+                        <br>
+                        <br>
+                        <p>
+                            Para "cortar caminho", estou apresentando o conteúdo (2) do arquivo <code>application.properties</code> (1).
+                            Em (3) é possível observar que o projeto foi compilado com sucesso para ajustar as dependências. Clique no
+                            botão abaixo e à direita para fazer download do projeto como ilustrado na imagem.
+                        </p>
+
+                        <div class="cell small-12">                        
+                            <div class="grid-container">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-9 bold"> </div>
+                                    <div class="cell small-3">
+                                        <a href="arquivos/springtutorialmogodb.zip" class="hollow button expanded">Download do projeto .zip</a>
+                                    </div>
+                                </div>
+                            </div>                        
+                        </div>
+
+                        <div class="cell small-12">
+                            &nbsp;                    
+                        </div>
+                        <div class="cell small-12">                                
+                            <h3> Implementação do exemplo</h3>
+                            <hr>
+
+                            <h4>Anotando as classes</h4>
+                            <p> 
+                                O String Data MongoDB trabalha de maneira bem simplificada, se comparado ao Spring Data JPA. Para 
+                                persistir as classes de nosso exemplo apenas as classes <code>Fisica.java</code> e <code>Juridica.java</code>
+                                serão anotadas com <code>@Id</code>. O MongoDB não trabalha com o conceito de chaves (primárias e
+                                estrangeiras), sendo utilizados identificadores (gerenciados pelo banco de dados) de objetos para 
+                                diferenciar os objetos. A anotação supracitada permite que atributos específicos tenham comportamento
+                                de identificadores.
+                            </p>
+
+                            <p>
+                                Veja a listagem da classe <code>Fisica.java</code>:
+                            </p>
+                            <div class="callout sourceCode">
+                                <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorialmogodb.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.Date;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.data.annotation.Id;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = false, exclude = <span style='font-weight:bold;color:#D3171B'>{</span><span style='color:#2A00FF'>"dataNascimento"</span><span style='font-weight:bold;color:#D3171B'>}</span>)
+@ToString(callSuper = true, includeFieldNames = <span style='font-weight:bold;color:#7B0052;'>true</span>)
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Fisica <span style='font-weight:bold;color:#7B0052;'>extends</span> Pessoa <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    @Id
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cpf;
+    <span style='font-weight:bold;color:#7B0052;'>private</span> Date dataNascimento;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Fisica() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                            </div>
+
+                            <p>
+                                Veja a listagem da classe <code>Juridica.java</code>:
+                            </p>
+                            <div class="callout sourceCode">
+                                <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorialmogodb.entity;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.EqualsAndHashCode;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Getter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.Setter;
+<span style='font-weight:bold;color:#7B0052;'>import</span> lombok.ToString;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.data.annotation.Id;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Getter
+@Setter
+@EqualsAndHashCode(callSuper = <span style='font-weight:bold;color:#7B0052;'>false</span>)
+@ToString(callSuper = true, includeFieldNames = <span style='font-weight:bold;color:#7B0052;'>true</span>)
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> Juridica <span style='font-weight:bold;color:#7B0052;'>extends</span> Pessoa <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    @Id
+    <span style='font-weight:bold;color:#7B0052;'>private</span> String cnpj;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Juridica() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                            </div>
+
+                            <h4>Implementando a camada repository</h4>
+                            <p> 
+                                De modo análogo ao Spring Data JPA, devemos criar uma interface chamada <code>FisicaRepository.java</code> 
+                                que deve estender a interface <code>MongoRepository</code>. Veja a listagem de nosso repositório com as
+                                duas assinaturas elaboradas: <code> findByCpf</code> e <code>deleteByCpf</code>.
+                            </p>
+                            <div class="callout sourceCode">
+                                <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorialmogodb.repository;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorialmogodb.entity.Fisica;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.data.mongodb.repository.MongoRepository;
+
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>interface</span> FisicaRepository <span style='font-weight:bold;color:#7B0052;'>extends</span> MongoRepository&lt;Fisica, Long&gt; <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    Fisica findByCpf(<span style='font-weight:bold;color:#7B0052;'>String</span> cpf);
+
+    <span style='font-weight:bold;color:#7B0052;'>void</span> deleteByCpf(<span style='font-weight:bold;color:#7B0052;'>String</span> cpf);
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                            </div>
+
+                            <h4>Implementando a camada service</h4>
+                            <p> 
+                                De modo análogo ao Spring Data JPA, devemos criar uma classe chamada <code>FisicaService.java</code>. Essa
+                                classe é praticamente identica a classe desenvolvida para o exemplo Spring Data JPA. As diferenças são relação 
+                                ao uso dos métodos <code> findByCpf</code> e <code>deleteByCpf</code>. Veja a listegem abaixo:
+                            </p>
+                            <div class="callout sourceCode">
+                                <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorialmogodb.service;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorialmogodb.entity.Fisica;
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorialmogodb.repository.FisicaRepository;
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.ArrayList;
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.List;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.beans.factory.annotation.Autowired;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.stereotype.Component;
+
+<span style='color:#3F5FBF'>/**
+ *
+ * @author frank
+ */</span>
+@Component
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> FisicaService <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    @Autowired
+    <span style='font-weight:bold;color:#7B0052;'>private</span> FisicaRepository repository;
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> FisicaService() <span style='font-weight:bold;color:#D3171B'>{</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Fisica save(Fisica entity) <span style='font-weight:bold;color:#D3171B'>{</span>
+        Fisica persistedEntity = <span style='font-weight:bold;color:#7B0052;'>null</span>;
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            persistedEntity = repository.save(entity);
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>return</span> persistedEntity;
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Fisica findByCpf(String cpf) <span style='font-weight:bold;color:#D3171B'>{</span>
+        Fisica insertedEntity = <span style='font-weight:bold;color:#7B0052;'>null</span>;
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            insertedEntity = repository.findByCpf(cpf);
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>return</span> insertedEntity;
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> delete(Fisica entity) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            repository.deleteByCpf(entity.getCpf());
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> Fisica update(Fisica entity) <span style='font-weight:bold;color:#D3171B'>{</span>
+
+        Fisica persistedEntity = <span style='font-weight:bold;color:#7B0052;'>null</span>;
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            persistedEntity = repository.save(entity);
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>return</span> persistedEntity;
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> List&lt;Fisica&gt; findAll() <span style='font-weight:bold;color:#D3171B'>{</span>
+        List&lt;Fisica&gt; list = <span style='font-weight:bold;color:#7B0052;'>null</span>;
+
+        <span style='font-weight:bold;color:#7B0052;'>if</span> (repository != <span style='font-weight:bold;color:#7B0052;'>null</span>) <span style='font-weight:bold;color:#D3171B'>{</span>
+            list = <span style='font-weight:bold;color:#7B0052;'>new</span> ArrayList&lt;&gt;();
+            list = repository.findAll();
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        <span style='font-weight:bold;color:#7B0052;'>return</span> list;
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                            </div>
+
+                            <p>
+                                Diferentemente da implementação anterior (Spring Data JPA), nós iremos modificar a classe
+                                <code>SpringtutorialmogodbApplication</code>. Para isso, essa classe deve implementar a interface 
+                                <code>CommandLineRunner</code> para que o método <code>run</code> possa ser desenvolvido. A listagem
+                                abaixo mostra como a implementação da camada <code>service</code> pode ser utilizada.
+                            </p>
+
+                            <div class="callout sourceCode">
+                                <pre>
+<span style='font-weight:bold;color:#7B0052;'>package</span> br.unesp.rc.springtutorialmogodb;
+
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorialmogodb.entity.Fisica;
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorialmogodb.service.FisicaService;
+<span style='font-weight:bold;color:#7B0052;'>import</span> br.unesp.rc.springtutorialmogodb.utils.InstanceGenerator;
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.List;
+<span style='font-weight:bold;color:#7B0052;'>import</span> java.util.Scanner;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.beans.factory.annotation.Autowired;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.boot.CommandLineRunner;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.boot.SpringApplication;
+<span style='font-weight:bold;color:#7B0052;'>import</span> org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+<span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>class</span> SpringtutorialmogodbApplication <span style='font-weight:bold;color:#7B0052;'>implements</span> CommandLineRunner <span style='font-weight:bold;color:#D3171B'>{</span>
+
+    @Autowired
+    <span style='font-weight:bold;color:#7B0052;'>private</span> FisicaService fs = <span style='font-weight:bold;color:#7B0052;'>new</span> FisicaService();
+
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>static</span> <span style='font-weight:bold;color:#7B0052;'>void</span> main(String[] args) <span style='font-weight:bold;color:#D3171B'>{</span>
+        SpringApplication.run(SpringtutorialmogodbApplication.class, args);
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    @Override
+    <span style='font-weight:bold;color:#7B0052;'>public</span> <span style='font-weight:bold;color:#7B0052;'>void</span> run(String... args) <span style='font-weight:bold;color:#7B0052;'>throws</span> Exception <span style='font-weight:bold;color:#D3171B'>{</span>
+        <span style='font-weight:bold;color:#7B0052;'>int</span> op = -1;
+
+        <span style='font-weight:bold;color:#7B0052;'>while</span> (op != 6) <span style='font-weight:bold;color:#D3171B'>{</span>
+            op = leitura();
+
+            <span style='font-weight:bold;color:#7B0052;'>switch</span> (op) <span style='font-weight:bold;color:#D3171B'>{</span>
+                <span style='font-weight:bold;color:#7B0052;'>case</span> 1: <span style='font-weight:bold;color:#D3171B'>{</span>
+                    System.out.println(<span style='color:#2A00FF'>"Inserindo...."</span>);
+                    Fisica entity1 = InstanceGenerator.getPessoaFisica(<span style='color:#2A00FF'>"111.222.333-44"</span>, <span style='color:#2A00FF'>"user1"</span>);
+                    Fisica entity2 = InstanceGenerator.getPessoaFisica(<span style='color:#2A00FF'>"111.222.333-45"</span>, <span style='color:#2A00FF'>"user1"</span>);
+                    Fisica entity3 = InstanceGenerator.getPessoaFisica(<span style='color:#2A00FF'>"111.222.333-46"</span>, <span style='color:#2A00FF'>"user1"</span>);
+
+                    fs.save(entity1);
+                    fs.save(entity2);
+                    fs.save(entity3);
+                <span style='font-weight:bold;color:#D3171B'>}</span>
+                <span style='font-weight:bold;color:#7B0052;'>break</span>;
+                <span style='font-weight:bold;color:#7B0052;'>case</span> 2: <span style='font-weight:bold;color:#D3171B'>{</span>
+                    System.out.println(<span style='color:#2A00FF'>"Atualizando...."</span>);
+                    <span style='font-weight:bold;color:#7B0052;'>final</span> String cpf = <span style='color:#2A00FF'>"111.222.333-45"</span>;
+                    System.out.println(<span style='color:#2A00FF'>"Localizando uma pessoa para o CPF: "</span> + cpf);
+                    Fisica fc = fs.findByCpf(cpf);
+                    System.out.println(fc);
+                    fc.setNome(<span style='color:#2A00FF'>"ZÉ UPDATE DA SILVA"</span>);
+                    
+                    Fisica fu = fs.update(fc);
+                    System.out.println(fu);
+                <span style='font-weight:bold;color:#D3171B'>}</span>
+                <span style='font-weight:bold;color:#7B0052;'>break</span>;
+                <span style='font-weight:bold;color:#7B0052;'>case</span> 3: <span style='font-weight:bold;color:#D3171B'>{</span>
+                    System.out.println(<span style='color:#2A00FF'>"Excluindo...."</span>);                    
+                    <span style='font-weight:bold;color:#7B0052;'>final</span> String cpf = <span style='color:#2A00FF'>"111.222.333-45"</span>;
+                    System.out.println(<span style='color:#2A00FF'>"Localizando uma pessoa para o CPF: "</span> + cpf);
+                    Fisica fc = fs.findByCpf(cpf);
+                    System.out.println(fc);
+                    System.out.println(<span style='color:#2A00FF'>"Excluindo a pessoa de CPF: "</span> + fc.getCpf());
+                    fs.delete(fc);                    
+                <span style='font-weight:bold;color:#D3171B'>}</span>
+                <span style='font-weight:bold;color:#7B0052;'>break</span>;
+                <span style='font-weight:bold;color:#7B0052;'>case</span> 4: <span style='font-weight:bold;color:#D3171B'>{</span>
+                    System.out.println(<span style='color:#2A00FF'>"Consultando...."</span>);
+                    <span style='font-weight:bold;color:#7B0052;'>final</span> String cpf = <span style='color:#2A00FF'>"111.222.333-45"</span>;
+                    System.out.println(<span style='color:#2A00FF'>"Localizando uma pessoa para o CPF: "</span> + cpf);
+                    Fisica fc = fs.findByCpf(cpf);
+                    System.out.println(fc);
+                <span style='font-weight:bold;color:#D3171B'>}</span>
+                <span style='font-weight:bold;color:#7B0052;'>break</span>;
+                <span style='font-weight:bold;color:#7B0052;'>case</span> 5: <span style='font-weight:bold;color:#D3171B'>{</span>
+                    System.out.println(<span style='color:#2A00FF'>"Listando todos...."</span>);
+                    List&lt;Fisica&gt; list = fs.findAll();
+                    <span style='font-weight:bold;color:#7B0052;'>for</span> (Fisica f : list)<span style='font-weight:bold;color:#D3171B'>{</span>
+                        System.out.println(f);
+                    <span style='font-weight:bold;color:#D3171B'>}</span>
+                <span style='font-weight:bold;color:#D3171B'>}</span>
+                <span style='font-weight:bold;color:#7B0052;'>break</span>;
+                <span style='font-weight:bold;color:#7B0052;'>case</span> 6: <span style='font-weight:bold;color:#D3171B'>{</span>
+                    System.out.println(<span style='color:#2A00FF'>"Saindo...."</span>);
+                    op = 6;
+                <span style='font-weight:bold;color:#D3171B'>}</span>
+                <span style='font-weight:bold;color:#7B0052;'>break</span>;
+            <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        <span style='font-weight:bold;color:#D3171B'>}</span>
+
+        Fisica entity = InstanceGenerator.getPessoaFisica(<span style='color:#2A00FF'>"111.222.333-44"</span>, <span style='color:#2A00FF'>"user1"</span>);
+        System.out.println(<span style='color:#2A00FF'>"\n"</span> + entity + <span style='color:#2A00FF'>"\n"</span>);
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+    <span style='font-weight:bold;color:#7B0052;'>private</span> <span style='font-weight:bold;color:#7B0052;'>int</span> leitura() <span style='font-weight:bold;color:#D3171B'>{</span>
+        System.out.println(<span style='color:#2A00FF'>"1 - Inserir"</span>);
+        System.out.println(<span style='color:#2A00FF'>"2 - Atualizar"</span>);
+        System.out.println(<span style='color:#2A00FF'>"3 - Excluir"</span>);
+        System.out.println(<span style='color:#2A00FF'>"4 - Consultar"</span>);
+        System.out.println(<span style='color:#2A00FF'>"5 - Listar todos"</span>);
+        System.out.println(<span style='color:#2A00FF'>"6 - Sair"</span>);
+        System.out.print(<span style='color:#2A00FF'>"OPÇÃO: "</span>);
+        Scanner sc = <span style='font-weight:bold;color:#7B0052;'>new</span> Scanner(System.in);
+
+        <span style='font-weight:bold;color:#7B0052;'>return</span> sc.nextInt();
+    <span style='font-weight:bold;color:#D3171B'>}</span>
+
+<span style='font-weight:bold;color:#D3171B'>}</span></pre>
+                            </div>
+
+                            <p>
+                                Por fim, veja abaixo o resultado da execução do código acima.
+                            </p>
+                            <div class="callout sourceCode">
+                                <pre>
+cd /home/frank/Dropbox/aulasUnesp2020/springtutorial/springtutorialmogodb; JAVA_HOME=/opt/jdk-11.0.5 /opt/netbeans-11.3/netbeans/java/maven/bin/mvn "-Dexec.args=-classpath %classpath br.unesp.rc.springtutorialmogodb.SpringtutorialmogodbApplication" -Dexec.executable=/opt/jdk-11.0.5/bin/java org.codehaus.mojo:exec-maven-plugin:1.5.0:exec
+Running NetBeans Compile On Save execution. Phase execution is skipped and output directories of dependency projects (with Compile on Save turned on) will be used instead of their jar artifacts.
+Scanning for projects...
+                                                                        
+------------------------------------------------------------------------
+Building springtutorialmogodb 0.0.1-SNAPSHOT
+------------------------------------------------------------------------
+
+--- exec-maven-plugin:1.5.0:exec (default-cli) @ springtutorialmogodb ---
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v2.3.1.RELEASE)
+
+2020-07-18 15:27:23.189  INFO 23710 --- [           main] b.u.r.s.SpringtutorialmogodbApplication  : Starting SpringtutorialmogodbApplication on Dell-Inspiron-5548 with PID 23710 (/home/frank/Dropbox/aulasUnesp2020/springtutorial/springtutorialmogodb/target/classes started by frank in /home/frank/Dropbox/aulasUnesp2020/springtutorial/springtutorialmogodb)
+2020-07-18 15:27:23.195  INFO 23710 --- [           main] b.u.r.s.SpringtutorialmogodbApplication  : No active profile set, falling back to default profiles: default
+2020-07-18 15:27:24.023  INFO 23710 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data MongoDB repositories in DEFAULT mode.
+2020-07-18 15:27:24.089  INFO 23710 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 60ms. Found 1 MongoDB repository interfaces.
+2020-07-18 15:27:24.721  INFO 23710 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2020-07-18 15:27:24.737  INFO 23710 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2020-07-18 15:27:24.738  INFO 23710 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.36]
+2020-07-18 15:27:24.847  INFO 23710 --- [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2020-07-18 15:27:24.847  INFO 23710 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1589 ms
+2020-07-18 15:27:25.027  INFO 23710 --- [           main] org.mongodb.driver.cluster               : Cluster created with settings {hosts=[localhost:27017], mode=SINGLE, requiredClusterType=UNKNOWN, serverSelectionTimeout='30000 ms'}
+2020-07-18 15:27:25.173  INFO 23710 --- [localhost:27017] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:1, serverValue:214}] to localhost:27017
+2020-07-18 15:27:25.192  INFO 23710 --- [localhost:27017] org.mongodb.driver.cluster               : Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=6, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=13950040}
+2020-07-18 15:27:25.648  INFO 23710 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2020-07-18 15:27:25.890  INFO 23710 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2020-07-18 15:27:25.904  INFO 23710 --- [           main] b.u.r.s.SpringtutorialmogodbApplication  : Started SpringtutorialmogodbApplication in 3.421 seconds (JVM running for 3.844)
+1 - Inserir
+2 - Atualizar
+3 - Excluir
+4 - Consultar
+5 - Listar todos
+6 - Sair
+OPÇÃO: 5
+Listando todos....
+2020-07-18 15:27:35.135  INFO 23710 --- [           main] org.mongodb.driver.connection            : Opened connection [connectionId{localValue:2, serverValue:215}] to localhost:27017
+Fisica(super=Pessoa(nome=Juca Chaves, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-44, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+Fisica(super=Pessoa(nome=Juca Chaves, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-45, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+Fisica(super=Pessoa(nome=Juca Chaves, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-46, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+1 - Inserir
+2 - Atualizar
+3 - Excluir
+4 - Consultar
+5 - Listar todos
+6 - Sair
+OPÇÃO: 2
+Atualizando....
+Localizando uma pessoa para o CPF: 111.222.333-45
+Fisica(super=Pessoa(nome=Juca Chaves, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-45, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+Fisica(super=Pessoa(nome=ZÉ UPDATE DA SILVA, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-45, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+1 - Inserir
+2 - Atualizar
+3 - Excluir
+4 - Consultar
+5 - Listar todos
+6 - Sair
+OPÇÃO: 5
+Listando todos....
+Fisica(super=Pessoa(nome=Juca Chaves, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-44, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+Fisica(super=Pessoa(nome=ZÉ UPDATE DA SILVA, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-45, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+Fisica(super=Pessoa(nome=Juca Chaves, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-46, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+1 - Inserir
+2 - Atualizar
+3 - Excluir
+4 - Consultar
+5 - Listar todos
+6 - Sair
+OPÇÃO: 3
+Excluindo....
+Localizando uma pessoa para o CPF: 111.222.333-45
+Fisica(super=Pessoa(nome=ZÉ UPDATE DA SILVA, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-45, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+Excluindo a pessoa de CPF: 111.222.333-45
+1 - Inserir
+2 - Atualizar
+3 - Excluir
+4 - Consultar
+5 - Listar todos
+6 - Sair
+OPÇÃO: 5
+Listando todos....
+Fisica(super=Pessoa(nome=Juca Chaves, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-44, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+Fisica(super=Pessoa(nome=Juca Chaves, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-46, dataNascimento=Sat Jul 18 15:20:21 BRT 2020)
+1 - Inserir
+2 - Atualizar
+3 - Excluir
+4 - Consultar
+5 - Listar todos
+6 - Sair
+OPÇÃO: 6
+Saindo....
+
+Fisica(super=Pessoa(nome=Juca Chaves, endereco=[Endereco(rua=Avenida 24A, numero=1515, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=2020, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP), Endereco(rua=Avenida 24A, numero=3030, bairro=Bela Vista, cep=13506-900, cidade=Rio Claro, estado=SP)], acesso=Acesso(usuario=user1, senha=deitel), contato=Contato(telefoneResidencial=3333-4444, telefoneComercial=3333-5555, celular=98888-7777, email=juca@chaves.com.br)), cpf=111.222.333-44, dataNascimento=Sat Jul 18 15:34:37 BRT 2020)
+                                    
+                                </pre>
+                            </div>
+
+                            <div class="cell small-12">                                
+                                <p> 
+                                    Bem, é isso! Até a próxima! <img src="imagem/emoji.png" width="32" height="32" alt="emoji"/>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="cell small-12">
+                            <div class="callout">
+                                <div class="grid-container">
+                                    <div class="grid-x grid-margin-x">
+                                        <div class="cell small-3">
+                                            <img src="imagem/imagem-10.png" width="200" height="168" alt="imagem-10"/>
+                                        </div>
+                                        <div class="cell small-9 align-self-middle">                                        
+                                            <h3> AVISO IMPORTANTE: </h3>                                       
+
+                                            <h4>
+                                                O projeto completo estará disponível para download somente após a atividade prática 
+                                                a ser inserida no Google Classroom.
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>                                                       
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- CORPO DA PÁGINA-->
+
+
+
+            <!-- RODAPÉ DA PÁGINA-->
+            <div id="rodape">
+                <div  class="fundoCinza5px"> &nbsp; </div>
+                <!-- INSERINDO CARDS..-->
+                <div  class="fundoPreto">
+                    <div class="fundoPreto20px">
+
+                    </div>
+
+                    <div class="grid-container">
+                        <div class="grid-x grid-margin-x">
+                            <div class="cell small-12">
+                                <p class="whiteBold"> REFERÊNCIAS </p>
+                                <hr>
+                                <p><a class="white" href="https://spring.io/projects/spring-framework" target="_blank">Spring Framework</a>  </p>
+                                <p><a class="white" href="https://spring.io/projects/spring-data" target="_blank">Spring Data</a>  </p>
+                                <p><a class="white" href="https://start.spring.io/" target="_blank">Spring Initializr </a>  </p>
+                                <p><a class="white" href="https://www.oracle.com/java/technologies/javase/javabeans-spec.html" target="_blank">JavaBeans Specification </a>  </p>
+                                <p><a class="white" href="http://java2html.blogspot.com/" target="_blank">Convert Java sourceTo HTML Online! </a>  </p>
+                                <p>&nbsp;</p>
+                            </div>                        
+                        </div>
+                    </div>                
+                </div>
+            </div>
+            <!-- RODAPÉ DA PÁGINA-->
+
+            <script src="../../../foundation-sites-6.6.3-CSS/assets/js/vendor.js"></script>
+            <script src="../../../foundation-sites-6.6.3-CSS/assets/js/foundation.js"></script>
+            <script>
+                $(document).foundation();
+            </script>
+
+    </body>
+</html>

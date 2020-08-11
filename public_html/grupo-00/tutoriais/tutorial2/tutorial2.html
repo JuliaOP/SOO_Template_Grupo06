@@ -1,0 +1,1161 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>:: Sistemas Orientados a Objetos 2020 - Prof. Dr. Frank J. Affonso</title>
+        <link rel="stylesheet" href="../../../foundation-sites-6.6.3-CSS/assets/css/foundation.css" />        
+        <link rel="stylesheet" href="../../../foundation-sites-6.6.3-CSS/assets/css/app.css" />
+    </head>
+
+    <body>
+        <!-- TOPO DA PÁGINA-->
+        <div id="topo">
+            <div class="background">
+                <div class="grid-container">
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell small-10">&nbsp;</div>
+                        <div class="cell small-2">
+                            <p class="right marginTop"><button class="button warning expanded" data-open="exampleModal1">Sobre</button></p>
+
+                            <div class="reveal" id="exampleModal1" data-reveal>
+                                <h1>Guia para Documentação</h1>
+                                <p class="lead">Prof. Dr. Frank J. Affonso.</p>
+                                <p>Projeto criado com ZURB Foundation 6.6.3.</p>
+                                <button class="close-button" data-close aria-label="Close modal" type="button">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="cell small-12">
+                            <div class="heigh100">                    
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <h2 class="whiteBold">Sistemas Orientados a Objetos 2020</h2>
+                            <h3 class="white">Atividades Remotas</h3>
+                            <h4 class="white">Prof. Frank J. Affonso</h4>
+                        </div>                                           
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!-- TOPO DA PÁGINA-->
+
+
+        <!-- CORPO DA PÁGINA-->        
+        <div id="corpo">
+            <div class="grid-container">
+                <div class="grid-x grid-margin-x">
+                    <div class="cell small-12 heigh50">
+                        &nbsp;
+                    </div>
+
+                    <div class="cell small-12">
+                        <div class="callout">
+                            <div class="cell small-12">
+                                <h1> Desenvolvendo aplicações Java com a API JDBC </h1>
+                            </div>
+                            <div class="cell small-12">
+                                <hr>                    
+                            </div>
+                            <div class="cell small-12">
+                                <p class="bold"> GRUPO: 0 </p>
+                            </div>                                
+                            <div class="cell small-12">                    
+                                <ul>
+                                    <li><b>Frank José Affonso</b></li>
+                                    <li>José Affonso</li>
+                                    <li>José Frank</li>
+                                </ul>
+                            </div>
+
+                            <div class="cell small-12">
+                                <hr>                    
+                            </div>
+
+                            <div class="cell small-12">
+                                <p class="bold"> Pré-requisitos </p>
+                            </div>                      
+                            <div class="cell small-12">
+                                <ul class="vertical menu">
+                                    <li><a href="https://www.oracle.com/technetwork/pt/java/javase/downloads/index.html">Java 8 ou superior - Versão 11.0.5 LTS</a></li>
+                                    <li><a href="https://netbeans.org/">Netbeans IDE - Versão 11.3</a></li>
+                                    <li><a href="https://junit.org/junit5/">JUnit 5 - Versão 5.6.2</a></li>
+                                </ul>
+                            </div>                            
+                        </div>
+                    </div> 
+
+                    <!--collout-->
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> Objetivo</h3>
+                        <hr>
+                        <p> 
+                            O objetivo principal deste tutorial é apresentar aos alunos do BCC 
+                            Unesp (Integral e Noturno) como a API JDBC (do inglês, <i>Java Database 
+                                Connectivity</i>) pode ser utilizada na construção de aplicações que 
+                            envolvem banco de dados. Este tutorial visa também mostrar como a IDE 
+                            Netbeans 11.3 pode facilitar esse tipo de desenvolvimento.
+                        </p>
+                        <p>
+                            Como objetivo secundário, porém não menos importante, este tutorial visa auxiliar os alunos de ambas as turmas na elaboração desse tipo de documento (TUTORIAL).
+                        </p>
+                    </div>
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> O que é a API JDBC?</h3>
+                        <hr>
+                        <p> Esta é uma API Java que permite acessar qualquer tipo de dados tabulares, 
+                            especialmente dados armazenados em um banco de dados relacional. A API JDBC
+                            auxilia na construção de aplicativos Java que gerenciam essas três atividades 
+                            de programação:
+                        </p>
+                        <ul>
+                            <li>Conexão a uma fonte de dados (ou seja, um banco de dados) </li>
+                            <li>Enviar consultas e atualizar instruções para o banco de dados </li>
+                            <li>Recuperação e processamento de resultados recebidos do banco de dados em resposta a algum tipo de consulta </li>                            
+                        </ul>                                                                  
+                        <p class="right"> <a href="https://docs.oracle.com/javase/tutorial/jdbc/overview/index.html" target="_blank"> (ORACLE, 2020)</a> </p>
+                    </div>
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> Apresentando o Exemplo: Diagrama de Classe e Mapeamento</h3>
+                        <hr>
+                        <p> 
+                            Para mostrar a funcionalidade da API JDBC no desenvolvimento de uma 
+                            aplicação Java, o gerenciamento de uma entidade cliente será considerado. 
+                            Veja a especificação abaixo:
+                        </p>
+
+                        <div class="callout fundoEspRequisitos">
+                            <p>
+                                O sistema deve permitir a inclusão, alteração e remoção de clientes do 
+                                sistema TUTORIAL-COM-JDBC com os seguintes atributos: nome, endereço (rua, número, bairro, 
+                                cep, cidade, estado), contato (telefone residencial, telefone comercial, 
+                                celular, e-mail), cpf (para pessoa física), data de nascimento e cnpj 
+                                (para pessoa jurídica). Um cliente pode ter mais de um endereço para 
+                                correspondência. Um cliente tem apenas um contato.
+                            </p>
+                        </div>
+                        <p>
+                            Com base na especificação apresentada, o seguinte diagrama de classes foi elaborado:
+                        </p>
+                        <img class="float-center" src="imagem/imagem-01.png" width="689" height="547" alt="imagem-01"/>
+
+                        <br>
+                        <br>
+                        <p>
+                            Como a ideia aqui é utilizar a API JDBC, os conceitos apresentados nas VIDEOAULAS 4 e 5 
+                            serão utilizados para mapear o modelo de classe para o modelo relacional. De acordo com 
+                            as regras de mapeamento, o desenvolvedor pode optar pela solução que lhe for mais conveniente 
+                            ao sistema de software que está sendo desenvolvido. Nesse sentido, observe as soluções geradas (a) e (b).
+                        </p>
+                        <img class="float-center" src="imagem/imagem-02.png" width="959" height="606" alt="imagem-02"/>
+
+                        <br>
+                        <br>
+                        <p>
+                            As soluções apresentados ilustram as possibilidades de mapeamento para o modelo (diagrama de classes). 
+                            A solução (a) mostra um mapeamento fiel ao modelo, sendo criada uma entidade para cada classe. Já a 
+                            solução (b) agrupa um conjunto de classe em apena uma entidade. Agora eis a questão…
+                        </p>
+                        <p>
+                            Qual solução adotar?
+                        </p>
+                        <p>
+                            RESPOSTA: Depende! 
+                        </p>
+                        <p>
+                            Depende da hierarquia de herança do sistema. Sistemas com níveis de hierarquias complexas (por exemplo, 
+                            vários níveis, maior número de atributos) podem utilizar a solução (a) para evitar que muitas linhas 
+                            com dados nulos sejam criados. Outro ponto que se deve levar em consideração é a consulta que deve 
+                            ser realizada quando uma entidade é mapeada para o modelo de classes.
+                        </p>
+                        <p>
+                            Embora mais complexa, a solução (a) será adotada neste tutorial. O objetivo é mostrar a codificação 
+                            desse tipo de entidade.                            
+                        </p>
+                    </div>
+                    <div class="cell small-12">                        
+                        <div class="grid-container">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell small-9 bold"> </div>
+                                <div class="cell small-3">
+                                    <a href="arquivos/entidadeCliente.mwb" class="hollow button expanded">Download do arquivo .mwb</a>
+                                </div>
+                            </div>
+                        </div>                        
+                    </div>
+
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+                    <div class="cell small-12">                                
+                        <h3> Aplicando o padrão DAO</h3>
+                        <hr>
+                        <p> 
+                            Antes de iniciar a implementação dessa aplicação, vamos apresentar o modelo com a aplicação do 
+                            padrão DAO (Veja a VIDEOAULA 4). Observe a figura abaixo:
+                        </p>
+                        <img src="imagem/imagem-03.png" width="2247" height="1674" alt="imagem-03"/>
+
+                        <br>
+                        <br>
+                        <div class="grid-container">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell small-9">&nbsp;</div>
+                                <div class="cell small-3">
+                                    <button class="hollow button expanded" data-toggle="ampliar"> Clique para ampliar </button>
+
+                                    <div class="full reveal" id="ampliar" data-reveal>    
+                                        <img src="imagem/imagem-03.png" alt="imagem-03">
+                                        <button class="close-button" data-close aria-label="Close reveal" type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <br>
+                        <br>
+                        <p>
+                            Esse diagrama segue a mesma organização do modelo (ESTILO ARQUITETURAL EM CAMADAS) apresentado na VIDEOAULA 5.
+                        </p>
+
+                        <ul>
+                            <li>O pacote <code>model</code> contém as classes lógicas do sistema para a entidade cliente.</li>
+                            <li>O pacote <code>dao</code> contém as classes de persistência, conforme padrão apresentado na VIDEOAULA 4.</li>
+                            <li>O pacote <code>utils</code> possui uma classe e uma interface, cujo objetivo é prover uma conexão do banco de dados MySQL para cada classe do pacote dao.</li>
+                            <li>O pacote <code>service</code> contém as classes que fazem intermédio entre a camada de aplicação e a camada dao.</li>
+                        </ul>
+
+                        <div class="grid-container">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell small-9">&nbsp;</div>
+                                <div class="cell small-3">
+                                    <button class="hollow button expanded" data-toggle="visualizar"> Visualizar </button>                                    
+                                    <div class="small reveal" id="visualizar" data-reveal>                                        
+                                        <img src="imagem/imagem-05.png" width="1205" height="677" alt="imagem-05"/>
+                                        <button class="close-button" data-close aria-label="Close modal" type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <p>
+                            Vamos agora modelar um diagrama de sequência para a funcionalidade “Cadastrar Pessoa Física”. Para isso, 
+                            vamos considerar uma interface principal (form) e uma interface específica de cadastro (form1). Assim 
+                            veja na figura abaixo como ficou a sequência de mensagens na linha do tempo.
+                        </p>
+                        <img src="imagem/imagem-04.png" width="1642" height="1969" alt="imagem-04"/>
+
+                        <br>
+                        <br>
+                        <div class="grid-container">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell small-9">&nbsp;</div>
+                                <div class="cell small-3">
+                                    <button class="hollow button expanded" data-toggle="ampliar2"> Clique para ampliar </button>
+
+                                    <div class="full reveal" id="ampliar2" data-reveal>    
+                                        <img src="imagem/imagem-04.png" alt="imagem-04">
+                                        <button class="close-button" data-close aria-label="Close reveal" type="button">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <br>
+                        <br>
+                        <p>
+                            Sobre os digramas, duas considerações devem ser destacadas:
+                        </p>
+                        <ul>
+                            <li>A interação entre os objetos do modelo (Passo 8 a 18). O objeto <code>fisica</code> 
+                                criado na linha 8 recebe por meio do método <code>set</code> os objetos <code>acesso</code>, <code>contato</code> 
+                                e <code>endereco</code> (Passos 12, 15 e 18, respectivamente).</li>
+                            <li>O <i>loop</i> criado para que vários objetos endereços possam ser atribuídos ao objeto <code>fisica</code> (Passo 16 a 18).</li>
+                        </ul>
+                    </div>
+
+                    <div class="cell small-12">
+                        &nbsp;                    
+                    </div>
+
+                    <div class="cell small-12">                                
+                        <h3> Implementação: dando "vida" aos diagramas</h3>
+                        <hr>
+                        <p> 
+                            Antes de iniciar a implementação do projeto, você deve criar um <code>database</code> de nome
+                            <code>jdbctutorial</code> no MySQLWorkbench. Caso tenha dúvidas nesse passo, assista a VIDEOAULA 
+                            que está no TÓPICO 5 no Google Classroom. 
+                        </p>
+
+                        <p>
+                            Agora vamos criar um projeto Java Maven chamado <code>JDBCTutorial</code>. Veja a figura abaixo:
+                        </p>
+                        <img src="imagem/imagem-06.png" width="412" height="184" alt="imagem-06"/>
+
+                        <br>
+                        <br>
+                        <p>
+                            Em seguida, vamos adicionar o driver JDBC para o banco de dados Mysql. Após fazer isso, o 
+                            arquivo <code>pom.xml</code> deve ficar da seguinte maneira:
+                        </p>
+                        <textarea name="pom1" rows="21" cols="20">
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>br.unesp.rc</groupId>
+    <artifactId>JDBCTutorial</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <dependencies>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.20</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+</project></textarea>
+
+
+
+                        <h4 class="marginTop">Implementando a camada <code>utils</code> </h4>
+
+                        <p>
+                            Inicialmente vamos criar uma interface chamada <code>IMySQL</code> com as constantes
+                            de configuração da conexão com o banco de dados MySQL. Veja o código na listagem abaixo:
+                        </p>
+                        <textarea name="java1" rows="13" cols="20">
+package br.unesp.rc.jdbctutorial.utils;
+
+/**
+ *
+ * @author frank
+ */
+public interface IMySQL {
+
+    final String USUARIO = "administrator";
+    final String SENHA = "SUA-SENHA";
+    final String URL = "jdbc:mysql://localhost:3306/jdbctutorial";
+    final String DRIVER_NAME = "com.mysql.cj.jdbc.Driver";
+}</textarea>
+                        <p>
+                            Agora vamos criar a classe responsável criar uma conexão com o banco de dados e 
+                            entregar para as classes da camada <code>dao</code>. A listagem abaixo mostra o
+                            código da classe <code>FabricaConexao.java</code>:
+                        </p>
+                        <textarea name="java2" rows="52" cols="20">
+package br.unesp.rc.jdbctutorial.utils;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author frank
+ */
+public class FabricaConexao implements IMySQL {
+
+    /**
+     * Este método é responsável por retornar uma conexão
+     *
+     * @return con (java.sql.Connection): null ou uma conexão ativa
+     */
+    public static Connection getConexao() {
+        Connection con = null;
+
+        try {
+            /*
+             * O comando baixo faz o carregamento do Driver
+             * Caso o driver não esteja no PATH do projeto, uma exceção é lançada.           
+             */
+            Class.forName(DRIVER_NAME);
+
+            /*
+             * O comando abaixo permite criar uma conexão com base nos parâmetros informados
+             */
+            con = DriverManager.getConnection(URL, USUARIO, SENHA);
+        } catch (ClassNotFoundException | SQLException ex) {
+            System.out.println("Message: " + ex.getMessage());
+        }
+
+        return con;
+    }
+
+    public boolean fechar(Connection con) {
+        return false;
+    }
+
+    public boolean fechar(Connection con, PreparedStatement pstm) {
+        return false;
+    }
+
+    public boolean fechar(Connection con, PreparedStatement pstm, ResultSet res) {
+        return false;
+    }
+}</textarea>       
+
+                        <br>
+                        <p>
+                            OBSERVAÇÃO: Veja os comentários no código sobre os principais comandos.
+                        </p>
+
+                        <p>
+                            Veja também que o método <code>fechar</code> foi sobrecarregado para lidar com os objetos 
+                            que manipulam as conexões.
+                        </p>
+
+
+                        <h4 class="marginTop"> Implementando a camada <code>model</code> </h4>
+
+                        <p>
+                            Agora vamos escrever as classes da camada <code>model</code>. Basicamente, essas classes
+                            possuem atributos, construtores, os métodos de acesso (getters e setters) e o método
+                            <code>toString</code>. Veja a nova estrutura do projeto com as novas classes:
+                        </p>
+                        <img src="imagem/imagem-07.png" width="414" height="433" alt="imagem-07"/>
+
+                        <br>
+                        <br>                        
+                        <p>
+                            Para que este tutorial não fique tão longo, apenas o código fonte da classe <code>Pessoa.java</code>
+                            será exibido abaixo. Os demais podem ser visualizado no projeto completo que está disponível no final deste documento.
+                        </p>
+
+                        <textarea name="java3" rows="72" cols="20">
+package br.unesp.rc.jdbctutorial.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ *
+ * @author frank
+ */
+public class Pessoa {
+
+    private long idPessoa;
+    private String nome;
+    private List&lt;Endereco&gt; endereco;
+    private Acesso acesso;
+    private Contato contato;
+
+    public Pessoa() {
+        this.endereco = new ArrayList&lt;&gt;();
+    }
+
+    public long getIdPessoa() {
+        return idPessoa;
+    }
+
+    public void setIdPessoa(long idPessoa) {
+        this.idPessoa = idPessoa;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public List&lt;Endereco&gt; getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(List&lt;Endereco&gt; endereco) {
+        this.endereco = endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco.add(endereco);
+    }
+
+    public Acesso getAcesso() {
+        return acesso;
+    }
+
+    public void setAcesso(Acesso acesso) {
+        this.acesso = acesso;
+    }
+
+    public Contato getContato() {
+        return contato;
+    }
+
+    public void setContato(Contato contato) {
+        this.contato = contato;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" + "idPessoa=" + idPessoa + ", nome=" + nome
+                + "},\nendereco=" + endereco + ",\nacesso=" + acesso
+                + ",\ncontato=" + contato + '}';
+    }
+}</textarea>
+
+
+                        <h4 class="marginTop">Implementando a camada <code>dao</code> </h4>
+
+                        <p>
+                            Conforme apresentado no modelo UML, o pacote <code>dao</code> possui as classes responsáveis
+                            pela persistência dos objetos da camada <code>model</code>. Nesse sentido, vamos começar pela 
+                            interface <code>FisicaDAO.java</code>. Veja a listagem abaixo:
+                        </p>
+                        <textarea name="java4" rows="29" cols="20">
+package br.unesp.rc.jdbctutorial.dao;
+
+import br.unesp.rc.jdbctutorial.model.Fisica;
+
+/**
+ *
+ * @author frank
+ */
+public interface FisicaDAO {
+    
+    /* 
+     * As interrogações representam os parâmetros que serão passados para 
+     * String SQL.
+     */
+
+    final String INSERT_PESSOA = "INSERT INTO Pessoa(nome) VALUES(?)";
+
+    final String INSERT_FISICA = "INSERT INTO Fisica(cpf, dataNascimento, "
+            + "Pessoa_idPessoa) VALUES(?, ?, ?)";
+    
+    final String FIND_BY_CPF = "SELECT idPessoa, nome "
+            + "FROM pessoa_fisica "
+            + "WHERE cpf = ?";
+
+    public boolean save(Fisica fisica);
+
+    public Fisica findByCpf(String cpf);
+
+}</textarea>
+                        <p>
+                            Nessa listagem são estão declaradas as String SQL para inserção de uma pessoa física 
+                            (INSERT_PESSOA, INSERT_FISICA) e consulta de uma pessoa física pelo cpf (FIND_BY_CPF). 
+                            Além disso, também são apresentadas as assinaturas das operações salvar (<code>save</code>) e localizar uma pessoa física pelo cpf (<code>save</code>).
+                        </p>
+                        <p>
+                            Sobre a String SQL FIND_BY_CPF, <code>pessoa_fisica</code> não é uma tabela no banco de dados. Para 
+                            facilitar a operação de consulta, uma view elaborada por meio do seguinte comando:
+                        </p>
+                        <textarea name="sql" rows="15" cols="20">
+CREATE 
+ALGORITHM = UNDEFINED 
+DEFINER = `administrator`@`localhost` 
+SQL SECURITY DEFINER
+VIEW `pessoa_fisica` AS
+SELECT 
+    `Pessoa`.`idPessoa` AS `idPessoa`,
+    `Pessoa`.`nome` AS `nome`,
+    `Fisica`.`cpf` AS `cpf`,
+    `Fisica`.`dataNascimento` AS `dataNascimento`,
+    `Fisica`.`Pessoa_idPessoa` AS `Pessoa_idPessoa`
+FROM
+    (`Pessoa`JOIN `Fisica`)
+WHERE
+    (`Pessoa`.`idPessoa` = `Fisica`.`Pessoa_idPessoa`)</textarea>
+
+
+                        <p>
+                            Agora vamos trabalhar na implementação da classe <code>FisicaDAOImpl.java</code>, a qual deve
+                            OBRIGATORIAMENTE implementar as assinaturas da interface como métodos da classe. Veja a listagem
+                            abaixo:
+                        </p>
+
+                        <textarea name="java5" rows="134" cols="20">
+package br.unesp.rc.jdbctutorial.dao;
+
+import br.unesp.rc.jdbctutorial.model.Endereco;
+import br.unesp.rc.jdbctutorial.model.Fisica;
+import br.unesp.rc.jdbctutorial.utils.FabricaConexao;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author frank
+ */
+public class FisicaDAOImpl implements FisicaDAO {
+
+    public FisicaDAOImpl() {
+    }
+
+    @Override
+    public boolean save(Fisica fisica) {
+        boolean b = false;
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        long idPessoa = -1;
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                /*
+                 * Setando a conexão para falso, que representa o start da transação
+                 */
+                con.setAutoCommit(false);
+
+                /*
+                 * Essa instrução recebe o comando SQL (INSERT_PESSOA) e uma flag 
+                 * (PreparedStatement.RETURN_GENERATED_KEYS) que determina que a chave 
+                 * da entidade perisistida deve ser retornada
+                 */
+                pstm = con.prepareStatement(INSERT_PESSOA, PreparedStatement.RETURN_GENERATED_KEYS);
+
+                /*
+                 * O valor do objeto fisica é atribuído ao primeiro parâmetro do comando SQL
+                 */
+                pstm.setString(1, fisica.getNome());
+
+                /*
+                 * Esse comando executa a instrução SQL
+                 */
+                pstm.executeUpdate();
+
+                /*
+                 * Esse comando retorna um objeto do tipo ResultSet contendo a chave gerada.
+                 */
+                res = pstm.getGeneratedKeys();
+
+                /**
+                 * Recuperação da chave gerada
+                 */
+                while (res.next()) {
+                    idPessoa = res.getLong(1);
+                }
+
+                /*
+                 * O trecho abaixo permite a inserção de uma classe Fisica na tabela Fisica 
+                 */
+                pstm = con.prepareStatement(INSERT_FISICA);
+                pstm.setString(1, fisica.getCpf());
+                pstm.setDate(2, new java.sql.Date(fisica.getDataNascimento().getTime()));
+                pstm.setLong(3, idPessoa);
+                pstm.executeUpdate();
+
+                /*
+                 * Abaixo segue as chamadas das outras classes DAO para persistência das
+                 * outras classes em entidade no banco de dados.
+                 */
+                AcessoDAO adao = new AcessoDAOImpl();
+                adao.save(con, fisica.getAcesso(), idPessoa);
+
+                ContatoDAO cdao = new ContatoDAOImpl();
+                cdao.save(con, fisica.getContato(), idPessoa);
+
+                EnderecoDAO edao = new EnderecoDAOImpl();
+                for (Endereco e : fisica.getEndereco()) {
+                    edao.save(con, e, idPessoa);
+                }
+
+                /*
+                 * Executando o commit da transação.  
+                 */
+                con.commit();
+                b = true;
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return b;
+    }
+
+    @Override
+    public Fisica findByCpf(String cpf) {
+        Connection con = null;
+        PreparedStatement pstm = null;
+        ResultSet res = null;
+        Fisica fisica = null;
+
+        con = FabricaConexao.getConexao();
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(FIND_BY_CPF);
+                pstm.setString(1, cpf);
+                res = pstm.executeQuery();
+
+                /**
+                 * Recuperação o objeto
+                 */
+                while (res.next()) {
+                    fisica = new Fisica();
+                    fisica.setIdPessoa(res.getLong(1));
+                    fisica.setNome(res.getString(2));
+                }
+            } catch (SQLException ex) {
+                System.out.println("Message: " + ex);
+            }
+        }
+
+        return fisica;
+    }
+
+}</textarea>                        
+                        <p>
+                            OBSERVAÇÃO: Observe os comentários das listagem para descrição do funcionamento
+                            dos principais comandos.
+                        </p>
+
+                        <p>
+                            Como pode-se observar no método <code>salvar</code>, chamadas de outras classes DAO
+                            são realizadas para persistir os objetos de sua entidade. Além disso, vale destacar o
+                            controle transacional implementado pelas instruções <code>con.setAutoCommit(false);</code> e 
+                            <code>con.commit();</code>. 
+                        </p>
+
+                        <p>
+                            O controle de transação depende da implementação correta das exceções. Para isso, vamos apresentar 
+                            a listagem da interface <code>ContatoDAO.java</code> <code>ContatoDAOImpl.java</code>, respectivamente.
+                        </p>
+                        <textarea name="java6" rows="21" cols="20">
+package br.unesp.rc.jdbctutorial.dao;
+
+import br.unesp.rc.jdbctutorial.model.Contato;
+import java.sql.Connection;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author frank
+ */
+public interface ContatoDAO {
+
+    final String INSERT_CONTATO = "INSERT INTO Contato(telefoneResidencial, "
+            + "telefoneComercial, celular, email, Pessoa_idPessoa) "
+            + "VALUES(?, ?, ?, ?, ?)";
+
+    /*
+     * Observe que a assinatura abaixo requer uma exceção.
+     */
+    public boolean save(Connection con, Contato contato, long fk) throws SQLException;
+}</textarea>
+                        <br>
+                        <textarea name="java7" rows="41" cols="20">
+package br.unesp.rc.jdbctutorial.dao;
+
+import br.unesp.rc.jdbctutorial.model.Contato;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
+/**
+ *
+ * @author frank
+ */
+public class ContatoDAOImpl implements ContatoDAO {
+
+    public ContatoDAOImpl() {
+    }
+
+    @Override
+    public boolean save(Connection con, Contato contato, long fk) throws SQLException {
+        boolean b = false;
+        PreparedStatement pstm = null;
+
+        if (con != null) {
+            try {
+                pstm = con.prepareStatement(INSERT_CONTATO);
+                pstm.setString(1, contato.getTelefoneResidencial());
+                pstm.setString(2, contato.getTelefoneComercial());
+                pstm.setString(3, contato.getCelular());
+                pstm.setString(4, contato.getEmail());
+                pstm.setLong(5, fk);
+                pstm.executeUpdate();
+
+                b = true;
+            } catch (SQLException ex) {
+                throw new SQLException(this.getClass().getName() + " - Problemas no PreparedStatement!\n" + ex.getMessage());
+            }
+        }
+
+        return b;
+    }
+
+}</textarea>
+                        <p>
+                            Veja que o comando <code>try-catch</code> lança uma exceção (<code>throw new 
+                                SQLException(this.getClass().getName() + " - Problemas no PreparedStatement!\n" + 
+                                ex.getMessage());</code>) para a classe que fez a chamada (no nosso caso a classe 
+                            <code>FisicaDAOImpl</code>) quando uma exceção ocorrer.
+                        </p>
+                        <p>
+                            Para encerrar a apresentação dessa camada, vamos criar agora a classe que representa o "ponto
+                            de acesso" para APENAS as classes que DEVE ser disponibilizadas. A listagem abaixo mostra a 
+                            implementação da classe <code>DaoFactory.java</code>:
+                        </p>                                                
+                        <textarea name="java8" rows="15" cols="20">
+package br.unesp.rc.jdbctutorial.dao;
+
+/**
+ *
+ * @author frank
+ */
+public class DaoFactory {
+    
+    private DaoFactory(){        
+    }
+    
+    public static FisicaDAO getFisicaDAO(){
+        return new FisicaDAOImpl();
+    }
+}</textarea>
+                        <p>
+                            IMPORTANTE: Veja que essa classe somente disponibiliza, por meio de um método, a implementação de
+                            <code>FisicaDAOImpl</code>. As demais classes DAO, que se referem às classe <code>Acesso, Contato 
+                                e Endereco</code>, não são apresentadas por motivo de escopo. Em outras palavras, essa camada deve
+                            disponibilizar apenas o necessário para a camada <code>service</code>.
+                        </p>
+
+
+                        <h4 class="marginTop">Implementando a camada <code>service</code> </h4>
+
+                        <p>
+                            A camada <code>service</code> possui algumas semelhanças em relação a camada <code>dao</code>. Essas
+                            semelhanças podem ser resumidas na presença de interface e classe de implementação, como nas classes
+                            DAO. A listagem abaixo mostra o código da interface <code>FisicaService</code>:
+                        </p>
+                        <textarea name="java9" rows="15" cols="20">
+package br.unesp.rc.jdbctutorial.service;
+
+import br.unesp.rc.jdbctutorial.model.Fisica;
+
+/**
+ *
+ * @author frank
+ */
+public interface FisicaService {
+
+    boolean save(Fisica entity);
+    
+    Fisica findByCpf(String cpf);
+    
+}</textarea>
+                        <p>
+                            IMPORTANTE: Essa interface implementa os métodos que serão acessados pela interface da aplicação.
+                        </p>
+
+                        <p>
+                            Agora vamos mostrar a implementação da classe <code>FisicaServiceImpl.java</code>, que implementa 
+                            a interface <code>FisicaService</code>. O atributo <code>FisicaDAO fisicaDao;</code> foi injetado
+                            para que essa classe possa manipular (ou seja, cadastrar, alterar, excluir e consultar) os dados da
+                            entidade que manipulam no banco de dados.
+                        </p>
+                        <textarea name="java10" rows="36" cols="20">
+package br.unesp.rc.jdbctutorial.service;
+
+import br.unesp.rc.jdbctutorial.dao.DaoFactory;
+import br.unesp.rc.jdbctutorial.dao.FisicaDAO;
+import br.unesp.rc.jdbctutorial.dao.FisicaDAOImpl;
+import br.unesp.rc.jdbctutorial.model.Fisica;
+
+/**
+ *
+ * @author frank
+ */
+public class FisicaServiceImpl implements FisicaService {
+
+    private FisicaDAO fisicaDao;
+
+    public FisicaServiceImpl() {
+        this.fisicaDao = DaoFactory.getFisicaDAO();
+    }
+
+    @Override
+    public boolean save(Fisica entity) {
+        boolean b = false;
+
+        if (entity != null) {
+            b = this.fisicaDao.save(entity);
+        }
+
+        return b;
+    }
+
+    @Override
+    public Fisica findByCpf(String cpf) {
+        return this.fisicaDao.findByCpf(cpf);
+    }
+
+}</textarea>
+
+
+                        <p>
+                            Por fim, vamos apresentar agora a implementação da classe <code>ServiceFactory.java</code>, que, assim como
+                            a classe <code>DaoFactory.java</code>, representa o "ponto de interação" dos objetos externos como esta camada.                            
+                        </p>
+                        <textarea name="java11" rows="17" cols="20">
+package br.unesp.rc.jdbctutorial.service;
+
+/**
+ *
+ * @author frank
+ */
+public class ServiceFactory {
+    
+    private ServiceFactory(){
+        
+    }
+    
+    public static FisicaService getFisicaService(){
+        return new FisicaServiceImpl();
+    }
+
+}</textarea>
+
+                        <h4 class="marginTop">Implementando a interface </h4>
+
+                        <p>
+                            Para finalizar este tutorial, vamos mostrar a classe <code>Demo.java</code>, que representa a 
+                            interface do nosso sistema. Veja a listagem abaixo:                           
+                        </p>
+                        <textarea name="java12" rows="45" cols="20">
+package demo;
+
+import br.unesp.rc.jdbctutorial.generator.InstanceGenerator;
+import br.unesp.rc.jdbctutorial.model.Fisica;
+import br.unesp.rc.jdbctutorial.service.FisicaService;
+import br.unesp.rc.jdbctutorial.service.ServiceFactory;
+
+/**
+ *
+ * @author frank
+ */
+public class Demo {
+
+    public static void main(String[] args) {
+        final String cpf = "111.222.333-48";
+        final String username = "user5";
+
+        FisicaService fs = ServiceFactory.getFisicaService();
+
+        /*
+         * Consulta uma pessoa física pelo cpf
+         */
+        Fisica f = fs.findByCpf(cpf);
+
+        if (f == null) {
+            /*
+             * Gera uma instância a ser persistida
+             */
+            Fisica fisica = InstanceGenerator.getPessoaFisica(cpf, username);
+
+            // Apenas exibe os dados do objeto gerado
+            System.out.println(fisica);
+
+            /*
+             * Persiste o objeto no banco de dados
+             */
+            boolean result = fs.save(fisica);
+            System.out.println("Result: " + result);
+        } else{
+            System.out.println("Pessoa física encontrada! Não faça nada!");
+        }
+
+    }
+
+}</textarea>
+
+                        <p>
+                            Como pode-se observar nessa listagem, a classe <code>Demo.java</code> tem acesso
+                            apenas a camada <code>service</code>, pois somente as classes dessa camada estão
+                            presentes nesse código.                            
+                        </p>
+
+                        <p>
+                            Para finalizar, observe na listagem da classe <code>Demo.java</code> que o comando
+                            <code>Fisica fisica = InstanceGenerator.getPessoaFisica(cpf, username);</code> permite
+                            gerar um objeto da classe <code>Fisica</code>. Note que apenas os dados que necessitam
+                            de unicidade do banco de dados são passado como parâmetros <code>(cpf, username)</code>.
+                            A listagem abaixo mostra o código fonte da classe <code>InstanceGenerator.java</code>:
+                        </p>
+                        <textarea name="java13" rows="68" cols="20">
+package br.unesp.rc.jdbctutorial.generator;
+
+import br.unesp.rc.jdbctutorial.model.Acesso;
+import br.unesp.rc.jdbctutorial.model.Contato;
+import br.unesp.rc.jdbctutorial.model.Endereco;
+import br.unesp.rc.jdbctutorial.model.Fisica;
+import java.util.Date;
+
+/**
+ *
+ * @author frank
+ */
+public class InstanceGenerator {
+
+    private InstanceGenerator() {
+
+    }
+
+    public static Fisica getPessoaFisica(String cpf, String user) {
+        Fisica f = new Fisica();
+
+        f.setCpf(cpf);
+        f.setDataNascimento(new Date());
+        f.setNome("Juca Chaves");
+
+        Acesso a = new Acesso();
+        a.setUsuario(user);
+        a.setSenha("deitel");
+        f.setAcesso(a);
+
+        Contato c = new Contato();
+        c.setTelefoneResidencial("3333-4444");
+        c.setTelefoneComercial("3333-5555");
+        c.setCelular("98888-7777");
+        c.setEmail("juca@chaves.com.br");
+        f.setContato(c);
+
+        Endereco e1 = new Endereco();
+        e1.setRua("Avenida 24A");
+        e1.setNumero(1515);
+        e1.setBairro("Bela Vista");
+        e1.setCep("13506-900");
+        e1.setCidade("Rio Claro");
+        e1.setEstado("SP");
+        
+        Endereco e2 = new Endereco();
+        e2.setRua("Avenida 24A");
+        e2.setNumero(2020);
+        e2.setBairro("Bela Vista");
+        e2.setCep("13506-900");
+        e2.setCidade("Rio Claro");
+        e2.setEstado("SP");
+        
+        Endereco e3 = new Endereco();
+        e3.setRua("Avenida 24A");
+        e3.setNumero(3030);
+        e3.setBairro("Bela Vista");
+        e3.setCep("13506-900");
+        e3.setCidade("Rio Claro");
+        e3.setEstado("SP");
+        
+        f.setEndereco(e1);
+        f.setEndereco(e2);
+        f.setEndereco(e3);
+
+        return f;
+    }
+}</textarea>
+                    </div> <!-- Implementação-->
+
+
+                    <div class="cell small-12">                                
+                        <h3> Executando...</h3>
+                        <hr>
+                        <p> 
+                            Após executar o programa temos os dados inseridos no banco de dados...
+                        </p>
+                        <img src="imagem/imagem-08.png" width="1419" height="786" alt="imagem-08"/>
+                        <br>
+                        <br>
+                        <p> 
+                            Como pode-se observar, os dados foram inseridos corretamente nas respectivas entidades, respeitando
+                            os relacionamentos apresentado no modelo orientado a objeto (diagrama de classes).
+                        </p>
+                        <p> 
+                            Bem, é isso! Até a próxima! <img src="imagem/emoji.png" width="32" height="32" alt="emoji"/>
+                        </p>
+                    </div>
+
+                    <div class="cell small-12">
+                        <div class="callout">
+                            <div class="grid-container">
+                                <div class="grid-x grid-margin-x">
+                                    <div class="cell small-3">
+                                        <img src="imagem/imagem-09.png" width="200" height="168" alt="imagem-09"/>
+                                    </div>
+                                    <div class="cell small-9 align-self-middle">                                        
+                                        <h3> AVISO IMPORTANTE: </h3>                                       
+
+                                        <h4>
+                                            O projeto completo estará disponível para download somente após a atividade prática 
+                                            a ser inserida no Google Classroom.
+                                        </h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>                                                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- CORPO DA PÁGINA-->
+
+
+
+        <!-- RODAPÉ DA PÁGINA-->
+        <div id="rodape">
+            <div  class="fundoCinza5px"> &nbsp; </div>
+            <!-- INSERINDO CARDS..-->
+            <div  class="fundoPreto">
+                <div class="fundoPreto20px">
+
+                </div>
+
+                <div class="grid-container">
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell small-12">
+                            <p class="whiteBold"> REFERÊNCIAS </p>
+                            <hr>
+                            <p><a class="white" href="https://docs.oracle.com/javase/tutorial/jdbc/index.html">Trail: JDBC(TM) Database Access</a>  </p>
+                            <p><a class="white" href="https://docs.oracle.com/en/java/javase/11/docs/api/java.sql/java/sql/package-tree.html">Hierarchy For Package java.sql</a>  </p>
+                            <p class="white">Deitel, H; Deitel, H. Livro - Java®: Como Programar, Editora Person, ISBN-10	8543004799, 2016.</p>
+                            <p>&nbsp;</p>
+                        </div>                        
+                    </div>
+                </div>                
+            </div>
+        </div>
+        <!-- RODAPÉ DA PÁGINA-->
+
+        <script src="../../../foundation-sites-6.6.3-CSS/assets/js/vendor.js"></script>
+        <script src="../../../foundation-sites-6.6.3-CSS/assets/js/foundation.js"></script>
+        <script>
+            $(document).foundation();
+        </script>
+
+    </body>
+</html>

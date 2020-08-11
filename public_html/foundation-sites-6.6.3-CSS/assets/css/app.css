@@ -1,0 +1,159 @@
+/*---------------------------------------------------
+    Custom styles
+---------------------------------------------------*/
+div.background{
+    min-height: 280px;
+    background-image: url('../../../imagens/wallpaper.jpg');
+}
+
+div.fundoEspRequisitos{
+    background-color: bisque;
+}
+
+div.fundoAzul{
+    background-color: lightskyblue; 
+}
+
+div.sourceCode{
+    background-color:ghostwhite; 
+    font-family: "Courier New", monospace;
+    font-size: 11pt;
+}
+
+div {    
+    /*    border-style: dotted;    
+        border-width: thin;*/
+    margin: 0px;
+    padding: 0px;
+    border-color: #cacaca;
+}
+
+div.fundoCinza5px{
+    min-height: 5px;
+    background: #767676;
+}
+
+div.fundoPreto{    
+    background: #000;
+}
+
+div.fundoPreto20px{
+    min-height: 20px;
+    background: #000;
+}
+
+div.fundoPreto50px{
+    min-height: 50px;
+    background: #000;
+}
+
+div.heigh100{
+    min-height: 100px;
+}
+
+div.heigh50{
+    min-height: 50px;
+}
+
+div.center{
+    text-align: center;
+}
+
+p.center {
+    text-align: center;
+    vertical-align: middle;
+}
+
+p.right {
+    text-align: right;
+}
+
+p.left {
+    text-align: left;
+}
+
+p.whiteBold {        
+    color: white;
+    font-weight: bold;
+}
+
+p.white {        
+    color: white;
+}
+
+p.red {
+    color: red;
+}
+
+p.marginTop{
+    margin-top: 10px;
+}
+
+p.bold{
+    font-weight: bold;
+}
+
+p.tab40px{
+    margin-left: 40px;
+    margin-bottom: 20px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+h2.whiteBold {    
+    color: white;
+    font-weight: bold;
+}
+
+label.white{
+    color: white;
+}
+
+h2.white{
+    color: white;
+}
+
+h3.white{
+    color: white;
+}
+
+h4.white{
+    color: white;
+}
+
+.tab40px{
+    margin-left: 40px;
+}
+
+.tab80px{
+    margin-left: 80px;
+}
+
+h1.center{
+    text-align: center;
+}
+
+h3.center{
+    text-align: center;
+}
+
+h4.center{
+    text-align: center;
+}
+
+h4.marginTop{
+    margin-top: 50px;
+}
+
+textarea{
+    font-family:"Courier New", monospace;
+    font-size: 11pt;
+}
+
+a.white{
+    color: white;
+}
+
+/*---------------------------------------------------
+    Custom styles
+---------------------------------------------------*/
