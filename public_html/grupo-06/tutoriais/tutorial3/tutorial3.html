@@ -112,37 +112,153 @@
                         <hr>
                         <h4>O que é Flutter?</h4>
                         <p> 
-                            Em poucas palavras, Maiores detalhes podem ser obtidos em
+                            Em poucas palavras, o Flutter é um Framework construído pela Google
+                            para facilitar o desenvolvimento mobile multiplataforma (Android/iOS)
+                            que tem o Dart como principal linguagem de desenvolvimento. Ele utiliza
+                            uma abordagem até então única para lidar com os componentes nativos de cada
+                            plataforma, em que cada um deles é implementado pelo próprio framework e 
+                            apresentado ao usuário por um motor de renderização próprio. Especialmente
+                            pensado para o front-end das aplicações, fornece inúmeros elementos de tela,
+                            ou widgets.
+                            <p>Veja abaixo um exemplo do código do "Hello World" em Flutter:
+                            </p><div class="callout sourceCode">
+                                <pre>
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+    @Override
+    Widget build(BuildContext context) {
+        return MaterialApp(
+            title: "Flutter Demo",
+            theme: ThemeData(
+                primarySwatch: Colors.blue,
+            ),
+            home: Scaffold(
+                appBar: AppBar(
+                    title: Text("Hello Flutter"),
+
+                ),
+                body: Center(
+                    child: Text("Hello World"),
+                ),
+            ),
+        );
+    }
+}
+                                    </pre>
+                            </div>
+                            
+                            Maiores detalhes podem ser obtidos em
                             <a href="https://flutter.dev/" target="_blank">Flutter 
                                 Dev</a>.                           
                         </p>
+                        <h4>O que é Dart?</h4>
+                        <p> 
+                            Dart é a linguagem do Flutter, uma linguagem de programação fortemente tipada, 
+                            inicialmente criada pela Google em 2011. Essa linguagem possui uma sintaxe com estilo baseado no C. 
+                            Isso faz com que sua sintaxe seja muito similar à linguagens atualmente populares,
+                            como Java e C#. Porém o dart tenta reduzir um pouco os ruídos característicos de 
+                            linguagens baseadas no C. 
+                            
+                                <p>
+                                     Veja o exemplo abaixo de um simples "Hello World" escrito em Dart:
+                                    </p>
+                                
+                                <div class="callout sourceCode">
+                                    <pre>
+main() {
+print('Hello World!');
+}
+                                        </pre>
+                                </div>
+                        </p>
+                        <p>
+                            Dart também possui algumas características de linguagens funcionais. Isso fica claro 
+                        no exemplo abaixo, onde uma sequência de Fibonacci é gerada:</p>                           </p>
+                       
+                       <div class="callout sourceCode">
+                           <pre>
+int fib(int n) => (n > 2) ? (fib(n - 1) + fib(n - 2)) : 1;
+
+void main() {
+print('fib(20) = ${fib(20)}');
+}
+                               </pre>
+                       </div>
+               </p>
+               <p>Maiores detalhes podem ser obtidos em
+                <a href="https://dart.dev/guides/language/language-tour" target="_blank">Dart  
+                    Dev</a>. </p>
+
+                      
 
                         <p>
-                            Dentre os projetos existentes no ecossistema Spring, este tutorial 
-                            abordará o <a href="https://spring.io/projects/spring-data" target="_blank">Spring
-                                Data</a>. O principal objetivo deste projeto é fornecer um modelo de 
-                            programação baseado em Spring que permite o acesso a dados, mantendo 
-                            as características especiais do armazenamento de dados subjacente. 
-                            O Spring Data facilita o uso de tecnologias de acesso a dados, 
-                            bancos de dados relacionais e não relacionais, estruturas de redução
-                            de mapas e serviços de dados baseados em nuvem. Dentre os módulos 
-                            existentes, este tutorial abordará dois, a saber:
+                            Este tutorial abordará o <a href="https://flutter.dev/docs/cookbook/networking/background-parsing" target="_blank">JSON Background 
+                                Parsing
+                        </a>. O principal objetivo deste projeto é fornecer um modelo de 
+                            programação baseado em Flutter/Dart que permite construir um front-end bonito, e em segundo mas não menos 
+                            importante, trabalhar com o consumo de dados de uma API.
+
+
                         </p>
                         <ul>
                             <li>
-                                <b>Spring Data JPA:</b> este módulo permite o desenvolvimento para camadas de 
-                                acesso a dados baseadas em JPA, abstraindo e facilitando a codificação 
-                                dessa camada. Dessa forma, pode-se dizer que esse módulo facilita a 
-                                criação de aplicativos com tecnologia Spring que usam tecnologias de 
-                                acesso a dados para banco de dados relacionais.
+                                <b>Pacote HTTP:</b> este pacote permite buscar dados por uma URL, assim como a conversão da resposta
+                                em objetos Dart, o que torna os dados mais fáceis de trabalhar.
+                                <p>Veja o seguinte exemplo de solicitação de rede em Flutter:</p>
+                                <div class="callout sourceCode">
+                                    <pre>
+Future<http.Response> fetchPhotos(http.Client client) async {
+    return client.get('https://jsonplaceholder.typicode.com/photos');
+}                                 
+                                        </pre>
+                                </div>
                             </li>
                             <li>
-                                <b>Spring Data MongoDB:</b> este módulo fornece integração com o banco de 
-                                dados de documentos MongoDB. Resumidamente, as principais funcionalidades 
-                                do Spring Data MongoDB podem ser sintetizadas no modelo POJO (do inglês, 
-                                <i>Plain Old Java Object</i>), o qual é utilizado para interagir com um 
-                                MongoDB DBCollection e permitir a camada de acesso a dados no estilo 
-                                Repositório seja elaborada.
+                                <b>Biblioteca 'dart:convert':</b> O Flutter tem esta biblioteca integrada que inclui um codificador e 
+                                decodificador JSON simples. Podemos serializar um modelo JSON inline ou então dentro de classes de modelo:
+                                <p>Veja o seguinte exemplo JSON:</p>
+                                <div class="callout sourceCode">
+                                    <pre>
+{
+    "name": "John Smith",
+    "email": "john@example.com"
+    }                                  
+                                        </pre>
+                                </div>
+                                <p>Veja a serialização deste JSON inline:</p>
+                                <div class="callout sourceCode">
+                                    <pre>
+Map<String, dynamic> user = jsonDecode(jsonString);
+
+print('Howdy, ${user['name']}!');
+print('We sent the verification link to ${user['email']}.');                                
+                                        </pre>
+                                </div>
+
+                                <p>Veja a serialização deste JSON dentro da classe modelo <b>user.dart</b>:</p>
+                                <div class="callout sourceCode">
+                                    <pre>
+class User {
+    final String name;
+    final String email;
+
+    User(this.name, this.email);
+
+    User.fromJson(Map<String, dynamic> json)
+    : name = json['name'],
+        email = json['email'];
+
+    Map<String, dynamic> toJson() =>
+    {
+    'name': name,
+    'email': email,
+    };
+}                               
+                                        </pre>
+                                </div>
                             </li>
                         </ul>
                     </div>
@@ -154,10 +270,7 @@
                         <h3> Apresentando o Exemplo</h3>
                         <hr>
                         <p> 
-                            Para mostrar a funcionalidade do framewok Spring Data tanto para JPA 
-                            quanto para MongoDB, o exemplo utilizado no TUTORIAL JDBC 
-                            (<a href="../tutorial2/tutorial2.html" target="_blank">AQUI</a>) será 
-                            utilizado. Veja a especificação abaixo:
+                            
                         </p>
 
                         <div class="callout fundoEspRequisitos">
@@ -170,25 +283,10 @@
                                 correspondência. Um cliente tem apenas um contato.
                             </p>
                         </div>
-                        <p>
-                            Com base na especificação apresentada, o seguinte diagrama de classes foi elaborado:
-                        </p>
-                        <img class="float-center" src="imagem/imagem-01.png" width="689" height="547" alt="imagem-01"/>
-
+                        
                         <br>
                         <br>
-                        <p>
-                            Embora o framework automatize a modelagem do banco de dados relacional, os conceitos 
-                            apresentados nas VIDEOAULAS 4 e 5 serão utilizados para entender como ocorrer o 
-                            mapeamento o modelo de classe para o modelo relacional por meio de anotações.
-                        </p>
-
-                        <p>
-                            Para desenvolver o exemplo apresentado, este tutorial será apresentado em duas partes. A 
-                            primeira mostra o desenvolvimento utilizando Spring Data JPA. Já a segunda mostra o desenvolvimento
-                            do mesmo exemplo utilizando Spring Data MongoDB, sendo os passos apresentados na primeira parte
-                            omitidos para evitar redundância de informações.
-                        </p>
+                        
                     </div>
 
                     <div class="cell small-12">
