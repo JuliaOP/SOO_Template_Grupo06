@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TutorialLogging.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #426404; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="tutorial-log4j2-com-spring-boot">Tutorial Log4j2 com Spring Boot</h1>
+<h2 id="requisitos-de-configura%C3%A7%C3%A3o">Requisitos de configuração</h2>
+<p>Para esse tutorial sera usada uma inicialização padrão do spring boot com as dependências <code>spring-boot-starter-web</code> e <code>lombok</code>.</p>
+<p>Para adicionarmos a dependência do Log4j2 devemos remover a dependência do log padrão do Spring Boot e adicionar a do Log4j2 no <code>pom.xml</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">exclusions</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">exclusion</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-logging<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">exclusion</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">exclusions</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+ 
+<span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-log4j2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span>
+</div></code></pre>
+<h2 id="software-necess%C3%A1rio">Software Necessário</h2>
+<p>Para a criação desse tutorial foi utilizado a IDE IntelliJ IDEA, mas funciona para qualquer IDE java com suporte ao Maven.</p>
+<h2 id="contexto">Contexto</h2>
+<h3 id="logging">Logging</h3>
+<p>Logging é o processo de escrever informação em arquivos de log. Os arquivos de log incluem informações sobre diferentes eventos do sistema operacional, do software e de conexões.</p>
+<h3 id="porque-usar-logging">Porque usar Logging</h3>
+<p>Um sistema de Logging é usado geralmente para as seguintes funções:</p>
+<ul>
+<li>Resoluções de Problemas / Debugging</li>
+<li>Coleta de Informações</li>
+<li>Auditorias</li>
+<li>Profiling</li>
+</ul>
+<p>Um ponto a se destacar é que um sistema de Logging não precisa ser limitado a erros de desenvolvimento. Ele pode ser usado para identificar falhas de segurança, violações de politicas e também para encontrar gargalos na aplicação.</p>
+<h3 id="onde-usar-logs">Onde usar Logs</h3>
+<p>Todos os eventos de erros de validação, autenticação e autorização, falhas, erros da aplicação, passagem por pontos criticos do sistema e inicializações e desligamentos da aplicação.</p>
+<h3 id="o-que-n%C3%A3o-pode-estar-em-um-log">O que não pode estar em um Log</h3>
+<p>Não pode ser usado para log nenhum tipo de informação sensivel do usuário (senhas, ids, tokens de acesso) ou do sistema (strings de conexão ao DB, chavesde encriptação).</p>
+<h3 id="boas-praticas-de-logging">Boas praticas de Logging</h3>
+<ul>
+<li>Deve ter sentido e contexto</li>
+<li>Deve ser estruturado e feito em diferentes níveis</li>
+<li>Deve ser ser adaptado para uso tanto nas fases de desenvolvimento como na de produção</li>
+</ul>
+<h3 id="log4j2">Log4j2</h3>
+<p>O log4j2 é uma biblioteca do projeto Apache Software Foundation e tem 3 componentes principais: Loggers, Appenders e layouts. Os Loggers são os métodos que pegam as mensagens de log e enviam para os Appenders, os Appenders escrevem o Log no seu arquivo de destino e os layouts são usados para formatação das mensagens.</p>
+<p>Uma das principais caracteristicas de um sistema de log são os níveis de erro e configuração:</p>
+<ul>
+<li>OFF: Sem Logging</li>
+<li>FATAL: Erros fatais da aplicação</li>
+<li>ERROR: Erros criticos da aplicação</li>
+<li>WARN: Erros provavelmente prejudiciais.</li>
+<li>INFO: Mensagens de Informação</li>
+<li>DEBUG: Pontos de Verificação de Debugging</li>
+<li>TRACE: Mensagens de debug mais detalhadas.</li>
+<li>ALL: Todo tipo de informação</li>
+</ul>
+<p><img src="images\Log4j-Log-Levels.png" alt="tabela log levels"></p>
+<h2 id="uso-com-spring-boot">Uso Com Spring Boot</h2>
+<h3 id="passo-1">Passo 1</h3>
+<p>Alterar o <code>pom.xml</code> como está informado na primeira seção do tutorial</p>
+<h3 id="passo-2">Passo 2</h3>
+<p>Adicionar as configurações do log4j2 na pasta resorces com o nome <code>log4j2-spring.xml</code>:</p>
+<pre class="hljs"><code><div><span class="hljs-meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">Configuration</span> <span class="hljs-attr">status</span>=<span class="hljs-string">"WARN"</span> <span class="hljs-attr">monitorInterval</span>=<span class="hljs-string">"30"</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Properties</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"LOG_PATTERN"</span>&gt;</span>%d{yyyy-MM-dd'T'HH:mm:ss.SSSZ} %p %m%n<span class="hljs-tag">&lt;/<span class="hljs-name">Property</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"APP_LOG_ROOT"</span>&gt;</span>c:/temp<span class="hljs-tag">&lt;/<span class="hljs-name">Property</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Properties</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Appenders</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Console</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"console"</span> <span class="hljs-attr">target</span>=<span class="hljs-string">"SYSTEM_OUT"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">PatternLayout</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">"${LOG_PATTERN}"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Console</span>&gt;</span>
+  
+        <span class="hljs-tag">&lt;<span class="hljs-name">RollingFile</span> <span class="hljs-attr">name</span>=<span class="hljs-string">"file"</span>
+            <span class="hljs-attr">fileName</span>=<span class="hljs-string">"${APP_LOG_ROOT}/SpringBoot2App/application.log"</span>
+            <span class="hljs-attr">filePattern</span>=<span class="hljs-string">"${APP_LOG_ROOT}/SpringBoot2App/application-%d{yyyy-MM-dd}-%i.log"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">PatternLayout</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">"${LOG_PATTERN}"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">Policies</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">SizeBasedTriggeringPolicy</span> <span class="hljs-attr">size</span>=<span class="hljs-string">"19500KB"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">Policies</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">DefaultRolloverStrategy</span> <span class="hljs-attr">max</span>=<span class="hljs-string">"1"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">RollingFile</span>&gt;</span>
+  
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Appenders</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">Loggers</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">Root</span> <span class="hljs-attr">level</span>=<span class="hljs-string">"info"</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">AppenderRef</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"console"</span> /&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">AppenderRef</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">"file"</span> /&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">Root</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">Loggers</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">Configuration</span>&gt;</span>
+</div></code></pre>
+<p>Observe que em <code>&lt;Root level=&quot;info&quot;&gt;</code> é definida a configuração do nivel do log, e que os arquivos de log serão salvos na pasta <code>c:/temp</code>.</p>
+<h2 id="exemplo">Exemplo</h2>
+<p>Usando uma api basica com a implementação de inserir uma pessoa, recuperar uma pessoa por ID, e recuperar todas as Pessoas.
+O log foi inserido na camada service:</p>
+<pre class="hljs"><code><div><span class="hljs-keyword">package</span> com.tutorial.logging.services.impl;
+
+<span class="hljs-keyword">import</span> com.tutorial.logging.model.Pessoa;
+<span class="hljs-keyword">import</span> com.tutorial.logging.services.PessoaService;
+<span class="hljs-keyword">import</span> lombok.extern.log4j.Log4j2;
+<span class="hljs-keyword">import</span> org.springframework.stereotype.Service;
+
+<span class="hljs-keyword">import</span> java.util.ArrayList;
+<span class="hljs-keyword">import</span> java.util.List;
+
+<span class="hljs-meta">@Service</span>
+<span class="hljs-meta">@Log</span>4j2
+<span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PessoaServiceImpl</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">PessoaService</span> </span>{
+    <span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> List&lt;Pessoa&gt; DB = <span class="hljs-keyword">new</span> ArrayList&lt;&gt;();
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Pessoa <span class="hljs-title">add</span><span class="hljs-params">(Pessoa pessoa)</span> </span>{
+        <span class="hljs-keyword">if</span> (DB.stream().anyMatch(p -&gt; p.getId() == pessoa.getId())){
+            log.warn(<span class="hljs-string">"Tentativa de inserção duplicada"</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        }
+
+        log.info(<span class="hljs-string">"Pessoa Inserida"</span>);
+        DB.add(pessoa);
+        <span class="hljs-keyword">return</span> pessoa;
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> Pessoa <span class="hljs-title">getById</span><span class="hljs-params">(<span class="hljs-keyword">int</span> id)</span> </span>{
+        <span class="hljs-keyword">if</span> (!DB.stream().anyMatch(p -&gt; p.getId() == id)){
+            log.warn(<span class="hljs-string">"Tentativa de recuperação por ID inexistente"</span>);
+            <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;
+        }
+
+        log.info(<span class="hljs-string">"Pessoa Recuperada por ID"</span>);
+        <span class="hljs-keyword">return</span> DB.stream()
+                .filter(p -&gt; p.getId() == id)
+                .findFirst().get();
+    }
+
+    <span class="hljs-meta">@Override</span>
+    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Pessoa&gt; <span class="hljs-title">getAll</span><span class="hljs-params">()</span> </span>{
+        log.info(<span class="hljs-string">"Todas As Pessoas Recuperadas"</span>);
+        <span class="hljs-keyword">return</span> DB;
+    }
+}
+</div></code></pre>
+<p>Aqui pode se observar o uso do <code>lombok</code> com a annotation <code>@Log4j2</code> que instancia a classe Logger no objeto log. Também deve se observar os niveis warn quando existe um problema no parametro, e info quando as requisições acontecem normalmente.</p>
+<h3 id="inser%C3%A7%C3%A3o-pessoa">Inserção Pessoa</h3>
+<p><img src="images\PostRequest.png" alt="PostRequest">
+<img src="images\LogPessoaInserida.png" alt="LogPessoaInserida"></p>
+<h3 id="recupera%C3%A7%C3%A3o-por-id">Recuperação Por ID</h3>
+<p><img src="images\GetByIdRequest.png" alt="GetByIdRequest">
+<img src="images\LogPessoaRecuperadaPorID.png" alt="LogPessoaRecuperadaPorID"></p>
+<h3 id="tentativa-de-inser%C3%A7%C3%A3o-de-pessoa-com-mesmo-id">Tentativa de Inserção de pessoa com mesmo ID</h3>
+<p><img src="images\LogTentativaInsercao.png" alt="LogTentativaInserção"></p>
+<h2 id="zip-do-projeto-tutorial-logging">Zip do Projeto: <a href="arquivos%5Clogging.zip">Tutorial Logging</a></h2>
+<h2 id="autor-leonardo-giorgiani">Autor: Leonardo Giorgiani</h2>
+
+</body>
+</html>
