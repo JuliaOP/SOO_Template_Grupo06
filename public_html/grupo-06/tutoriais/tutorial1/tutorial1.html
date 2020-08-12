@@ -1,0 +1,448 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>:: Sistemas Orientados a Objetos 2020 - Prof. Dr. Frank J. Affonso</title>
+        <link rel="stylesheet" href="../../../foundation-sites-6.6.3-CSS/assets/css/foundation.css" />        
+        <link rel="stylesheet" href="../../../foundation-sites-6.6.3-CSS/assets/css/app.css" />
+        <style>
+            h3 {
+                margin-top: 3rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- TOPO DA PÁGINA-->
+        <div id="topo">
+            <div class="background">
+                <div class="grid-container">
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell small-12">
+                            <div class="cell small-10">&nbsp;</div>
+                            <div class="cell small-2">
+                                <p class="right marginTop"><button class="button warning" data-open="exampleModal1">Sobre</button></p>
+
+                                <div class="reveal" id="exampleModal1" data-reveal>
+                                    <h1>Guia para Documentação</h1>
+                                    <p class="lead">Prof. Dr. Frank J. Affonso.</p>
+                                    <p>Projeto criado com ZURB Foundation 6.6.3.</p>
+                                    <button class="close-button" data-close aria-label="Close modal" type="button">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <div class="heigh100">                    
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <h2 class="whiteBold">Sistemas Orientados a Objetos 2020</h2>
+                            <h3 class="white">Atividades Remotas</h3>
+                            <h4 class="white">Prof. Frank J. Affonso</h4>
+                        </div>                                           
+                    </div>
+                </div> 
+            </div>
+        </div>
+        <!-- TOPO DA PÁGINA-->
+
+        <!-- CORPO DA PÁGINA-->        
+        <div id="corpo">
+            <div class="grid-container">
+                <div class="grid-x grid-margin-x">
+                    <div class="cell small-12" style="margin-top: 5rem;">
+                        <div class="callout">
+                            <div class="cell small-12">
+                                <h1>Transporte de mensagens com o protocolo MQTT usando a biblioteca Paho Java Client</h1>
+                            </div>
+                            <div class="cell small-12">
+                                <hr>                    
+                            </div>
+                            <div class="cell small-12">
+                                <p class="bold"> GRUPO: 6</p>
+                            </div>                                
+                            <div class="cell small-12">                    
+                                <ul>
+                                    <li><b>Gustavo Ficher Catarino</b></li>
+                                    <li>Leonardo Henry Giorgiani Nogueira</li>
+                                    <li>Julia Outeiro Pinto</li>
+                                </ul>
+                            </div>
+
+                            <div class="cell small-12">
+                                <hr>                    
+                            </div>
+
+                            <div class="cell small-12">
+                                <p class="bold">Pré-requisitos</p>
+                            </div>                      
+                            <div class="cell small-12">
+                                <ul class="vertical menu">
+                                    <li><a href="https://www.oracle.com/technetwork/pt/java/javase/downloads/index.html">Java - Versão 11.0.5 LTS ou superior</a></li>
+                                    <li><a href="https://netbeans.org/">Netbeans IDE - Versão 11.3 ou superior</a></li>
+                                    <li><a href="https://www.eclipse.org/paho/clients/java/">Eclipse Paho Java Client - Versão 1.2.0 ou superior</a></li>
+                                </ul>
+                            </div>                            
+                        </div>
+                    </div>
+
+
+                    <div class="cell small-12">                                
+                        <h3>Objetivo</h3>
+                        <hr>
+                        <p> 
+                            O objetivo principal deste tutorial é apresentar uma alternativa ao HTTP para tramissões de mensagens envolvendo dispositivos IoT usando a biblioteca PahoMQTT para Java.
+                            Esta biblioteca usa o protocolo MQTT, que consiste em um modelo Publicador-Subscritor.
+                        </p>
+                    </div>
+
+
+                    <div class="cell small-12 text-justify">                                
+                        <h3>O que é MQTT?</h3>
+                        <hr>
+                        <p>
+                            O MQTT (Message Queuing Telemetry Transport) é um protocolo de mensagens baseado em TCP/IP para sensores e dispositivos móveis.
+                            O esquema de troca de mensagens é fundamentado no modelo Publicador-Subscritor, extremamente simples e leve.
+                            Os princípios arquitetônicos são minimizar o uso de banda de rede e uso de recursos dos equipamentos enquanto garantindo confiabilidade e algum nível de garantia de entrega.
+                            Estes princípios tornam esse protocolo ideal para as comunicações emergentes (M2M) “machine-to-machine” e para as aplicações “Internet of Things” (Internet das coisas) um mundo de equipamentos conectados, além das aplicações mobile onde banda e potência da bateria são relevantes.
+                            Atualmente se encontra na versão 5.0 e a 3.1.1 (padrão ISO), ambos são padrões OASIS.
+                        </p>
+                        <p>
+                            O Paho Java Client é uma biblioteca cliente MQTT escrita em Java para o desenvolvimento de aplicativos que são executados na JVM ou em outras plataformas compatíveis com Java, como o Android.
+                        </p>
+                        <p>
+                            O Paho Java Client fornece duas APIs: MqttAsyncClient fornece uma API totalmente assíncrona onde a conclusão das atividades é notificada por meio de retornos de chamada registrados. MqttClient é um wrapper síncrono em torno de MqttAsyncClient, onde as funções aparecem em sincronia com o aplicativo.
+                        </p>
+                        <p class="right"> 
+                            <a href="https://pt.wikipedia.org/wiki/MQTT" target="_blank"> (Wikipedia, 2020)</a><br />
+                            <a href="https://www.eclipse.org/paho/clients/java" target="_blank"> (Eclipse, 2020)</a>
+                        </p>
+                    </div>
+
+
+
+
+                    <div class="cell small-12">                                
+                        <h3>Como o MQTT funciona</h3>
+                        <hr>
+                        <p>
+                            Há alguns itens importantes para conhecer sobre o MQTT antes de usá-lo:
+                            <ul>
+                                <li>Publicação e Inscrição</li>
+                                <li>Mensagens</li>
+                                <li>Tópicos</li>
+                                <li>Broker</li>
+                            </ul>
+                        </p>
+
+                        <h4>Publicação e Inscrição</h4>
+                        <p>O primeiro conceito é o sistema de publicação e inscrição. Em um sistema de publicação e inscrição, um dispositivo pode publicar uma mensagem em um tópico ou pode ser inscrito em um tópico específico para receber mensagens</p>
+                        <img src="imagem/MQTT_Schema_EN.jpg" alt="Esquema Publicação e Inscrição">
+                        <p>Por exemplo,</p>
+                        <ul>
+                            <li>o sensor de temperatura publica em um tópico</li>
+                            <li>o laptop e o celular estão inscritos neste tópico</li>
+                            <li>então, o broker envia a mensagem para o celular e o laptop</li>
+                        </ul>
+
+                        <h4>Mensagens</h4>
+                        <p>Mensagens são as informações que você deseja trocar entre seus dispositivos. Seja um comando ou dados. A mensagem também pode ser chamada de payload.</p>
+
+                        <h4>Tópicos</h4>
+                        <p>Os tópicos são um componente muito interessante do MQTT.</p>
+                        <p>
+                            Ao enviar uma mensagem, você precisa decidir qual tópico deve enviá-la. Tópicos são representados por strings separados por barras ("/").
+                            Cada barra em uma string denota um nível abaixo da hierarquia do tópico.
+                        </p>
+                        <img src="imagem/topic_basics.png" height="80" alt="Topic Basics"><br><br>
+                        
+                        <p>Podemos, também, utilizar caracteres coringas para increver em um tópico, mas nunca para publicar.</p>
+                        <strong>Coringa de Nível único: +</strong><br>
+                        <img src="imagem/topic_wildcard_plus.png" height="80" alt="Topic Basics Wildcard Plus"><br>
+                        <img src="imagem/topic_wildcard_plus_example.png" height="80" alt="Topic Basics Wildcard Plus Example"><br><br>
+
+                        <strong>Coringa de Multi-nível: #</strong><br>
+                        <p>O caractere multi-nível deve sempre ser colocado por último na string</p>
+                        <img src="imagem/topic_wildcard_hash.png" height="80" alt="Topic Basics Wildcard Hash"><br>
+                        <img src="imagem/topic_wildcard_hash_example.png" height="80" alt="Topic Basics Wildcard Hash Example"><br><br>
+
+
+                        <h4>Broker</h4>
+                        <p>Por fim, você deve saber do termo "broker".</p>
+                        <p>O broker é responsável por receber todas as mensagems, filtrá-las e decidir quais conexões deverão recebê-las.</p>
+                        <p>
+                            Existem várias implementações de brokers MQTT. O broker mais comum em aplicações de automação residencial é o "Mosquitto". Alternativamente, pode-se usar um broker na nuvem ou um broker público.
+                            É importante notar que brokers públicos podem ser acessados por qualquer usuário, que pode publicar e increver nos tópicos que você está usando.
+                        </p>
+                    </div>
+
+
+
+
+                    <div class="cell small-12">                                
+                        <h3> Criando o projeto</h3>
+                        <hr>
+                        <p> Vamos trabalhar neste tutorial com projeto Maven. Para isso, vá ao meu "File" -> "New Project". </p>                        
+
+                        <p> Na janela que se abre, selecione a categoria "Maven" e, em seguida, "Java Application"
+
+                        <p> Preencha os campos conforme a figura abaixo e clique no botão "Finish".<p>
+                            <img src="imagem/imagen-01.png" width="752" height="472" alt="imagen-01"/>
+
+                        <p> Observe a estrutura do projeto criado na IDE:</p>
+                        <img src="imagem/imagen-02.png" width="318" height="211" alt="imagen-02"/>
+
+                        <br>
+                        <br>
+                        <p> Observe agora o conteúdo do arquivo <code>pom.xml</code> do projeto </p>
+                        <textarea rows="15" readonly>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;br.unesp.rc&lt;/groupId&gt;
+    &lt;artifactId&gt;MQTTExample&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;maven.compiler.source&gt;14&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;14&lt;/maven.compiler.target&gt;
+    &lt;/properties&gt;
+&lt;/project&gt;
+                        </textarea>
+                        <br>
+                        <p>Vamos adicionar a dependência do PahoMQTT ao projeto:</p>
+                        <p>1. Clique com o botão direito sobre a pasta <code>Dependencies</code> e depois em <code>Add Dependency</code></p>
+                        <p>2. No campo <code>Query</code> pesquise por <code>mqttv3</code></p>
+                        <p>3. Expanda <code>org.eclipse.paho : org.eclipse.paho.client.mqttv3</code> e selecione a versão mais recente com o final <code>[ jar ] - Eclipse Paho Repo</code></p>
+                        <p>4. Clique em <code>Add</code></p>
+                        
+                        <img src="imagem/imagen-03.png" width="500" alt="imagen-03"/>
+                        <br>
+                        <br>
+                        <p>Abaixo segue o <code>pom.xml</code> do projeto com as dependências:</p>
+                        <textarea rows="22" readonly>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;br.unesp.rc&lt;/groupId&gt;
+    &lt;artifactId&gt;MQTTExample&lt;/artifactId&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;packaging&gt;jar&lt;/packaging&gt;
+    &lt;dependencies&gt;
+    &lt;dependency&gt;
+    &lt;groupId&gt;org.eclipse.paho&lt;/groupId&gt;
+    &lt;artifactId&gt;org.eclipse.paho.client.mqttv3&lt;/artifactId&gt;
+    &lt;version&gt;1.2.5&lt;/version&gt;
+    &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;properties&gt;
+    &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;
+    &lt;maven.compiler.source&gt;14&lt;/maven.compiler.source&gt;
+    &lt;maven.compiler.target&gt;14&lt;/maven.compiler.target&gt;
+    &lt;/properties&gt;
+&lt;/project&gt;
+                        </textarea>
+                    </div>
+
+
+                    <div class="cell small-12">
+                        <h3> Criando o exemplo</h3>
+                        <hr>
+                        <p> Vamos agora criar nosso exemplo...</p>
+                        <p> Para isso, vamos utilizar um Broker público criado para fim de testes. <strong>Não é recomendado utilizar brokers públicos</strong> para projetos reais porque qualqer outro usuário pode ler e enviar mensagens.</p>
+                        <p> 
+                            Vamos criar uma classe <code> Main.java</code> no pacote <code>br.unesp.rc.mqttexample</code> e implementar um código que cria um cliente MQTT, se inscreve em um tópico e envia uma mensagem neste mesmo tópico.
+                        </p>
+                        <textarea rows="63" readonly>
+package br.unesp.rc.mqttexample;
+
+import java.io.IOException;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttClient;
+import org.eclipse.paho.client.mqttv3.MqttConnectOptions;
+import org.eclipse.paho.client.mqttv3.MqttException;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        String topic        = "MQTT Examples";
+        String content      = "Unesp - SOO 2020";
+        int qos             = 2; // Garantia de entrega: deve receber uma e única vez
+        String broker       = "tcp://mqtt.eclipse.org:1883";
+        String clientId     = "SOO-349875cvn8345"; // Deve ser único no Broker
+        MemoryPersistence persistence = new MemoryPersistence();
+
+        try {
+            // Conecta ao Broker
+            MqttClient client = new MqttClient(broker, clientId, persistence);
+            MqttConnectOptions connOpts = new MqttConnectOptions();
+            connOpts.setCleanSession(true);
+            System.out.println("Connecting to broker: " + broker);
+            client.connect(connOpts);
+            System.out.println("Connected");
+            
+            
+            // Increve em um tópico
+            MqttCallback callback;
+            callback = new MqttCallbackExample();
+            
+            System.out.println("Subscribing to: " + topic);
+            client.subscribe(topic);
+            client.setCallback(callback);
+            
+            
+            // Envia uma mensagem
+            System.out.println("Publishing message: " + content);
+            MqttMessage message = new MqttMessage(content.getBytes());
+            message.setQos(qos);
+            client.publish(topic, message);
+            System.out.println("Message published");
+            
+            System.in.read();
+            
+            
+            // Desconecta do Broker
+            client.disconnect();
+            System.out.println("Disconnected");
+            client.close();
+        } catch(MqttException me) {
+            System.out.println("reason " + me.getReasonCode());
+            System.out.println("msg " + me.getMessage());
+            System.out.println("loc " + me.getLocalizedMessage());
+            System.out.println("cause " + me.getCause());
+            System.out.println("excep " + me);
+            me.printStackTrace();
+        }
+    }
+}                            
+                        </textarea>
+                        <p>
+                            O próximo passo agora é criar a implementação da classe MqttCallback. Essa classe é responsável por lidar com as mensagens recebidas. 
+                        </p>
+                        <p> 
+                            Vamos criar uma classe <code> MqttCallbackExample.java</code> no pacote <code>br.unesp.rc.mqttexample</code>.
+                        </p>
+                        <p> Observe o conteúdo da classe <code>MqttCallbackExample.java</code>:</p>
+                        <textarea rows="24" readonly>
+package br.unesp.rc.mqttexample;
+
+import org.eclipse.paho.client.mqttv3.IMqttDeliveryToken;
+import org.eclipse.paho.client.mqttv3.MqttCallback;
+import org.eclipse.paho.client.mqttv3.MqttMessage;
+
+public class MqttCallbackExample implements MqttCallback {
+    @Override
+    public void messageArrived(String topic, MqttMessage message) throws Exception {
+        System.out.println("Message received: " + message);
+    }
+
+    @Override
+    public void connectionLost(Throwable cause) {
+        // Se algum erro acontecer, podemos ver o que causou mais facilmente
+        cause.printStackTrace();
+    }
+
+    @Override
+    public void deliveryComplete(IMqttDeliveryToken imdt) {
+        // Nós não precisamos disso ainda
+    }
+}                                                     
+                        </textarea>
+
+                    </div>
+
+                    <div class="cell small-12">
+                        <h3> Rodando o código</h3>
+                        <hr>
+                        <p>Para executar o código, basta clicar no botão <code>Run Project (F6)</code>.</p>
+                        <p>Observe a saída do programa.</p>
+                        <p>
+                            O programa irá se inscrever no tópico "MQTT Examples", que é o tópico usado de exemplo na documentação oficial do Eclipse.
+                            Assim, você também receberá as mensagems do qualquer outra pessoa do mundo que está aprendendo a usar o MQTT neste servidor.
+                            Se o tópico estiver muito ocupado e, por isso, estiver dificultado os testes, você pode escolher qualquer outro tópico.
+                        </p>
+                        <p>
+                            Depois de se inscrever, o programa manda uma mensagem "Unesp - SOO 2020" para este tópico. Note que, como estamos inscritos nele, também recebemos a mensagem de volta.
+                        </p>
+                        <p>
+                            Apente <code>Enter</code> para encerrar o programa.
+                        </p>
+
+                        <textarea rows="13" readonly>
+Connecting to broker: tcp://mqtt.eclipse.org:1883
+Connected
+Subscribing to: MQTT Examples
+Publishing message: Unesp - SOO 2020
+Message received: Message from MqttPublishSample
+Message published
+Message received: Unesp - SOO 2020
+Message received: llii
+Message received: llii
+Message received: Hello World!
+
+Disconnected
+                        </textarea>
+
+                        <p>
+                            Perceba que, enquanto executei meus testes, outros usuários também estavam usando o mesmo tópico.
+                        </p>
+
+                        <p style="margin-top: 3rem;"> 
+                            Bem, é isso! Até a próxima! <img src="imagem/emoji.png" width="32" height="32" alt="emoji"/>
+                        </p>
+
+                        <div class="cell small-12" style="margin-top: 3rem;">
+                            <div class="callout">
+                                <div class="grid-container">
+                                    <div class="grid-x grid-margin-x">
+                                        <div class="cell small-9 bold">Download do projeto completo -> </div>
+                                        <div class="cell small-3">
+                                            <a href="arquivos/MQTTExample.zip" class="hollow button float-center">Clique aqui</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- RODAPÉ DA PÁGINA-->
+        <div id="rodape">
+            <div  class="fundoCinza5px"> &nbsp; </div>
+            <!-- INSERINDO CARDS..-->
+            <div  class="fundoPreto">
+                <div class="fundoPreto20px">
+
+                </div>
+                <div class="grid-container">
+                    <div class="grid-x grid-margin-x">
+                        <div class="cell small-12">
+                            <p class="whiteBold"> REFERÊNCIAS </p>
+                            <hr>
+                            <p><a class="white" href="https://www.hivemq.com/blog/mqtt-essentials-part-5-mqtt-topics-best-practices/">Boas práticas MQTT</a>  </p>
+                            <p><a class="white" href="https://mosquitto.org/">Mosquitto Broker</a>  </p>
+                            <p><a class="white" href="https://www.eclipse.org/paho/clients/java">Eclipse Paho Java Client</a>  </p>
+                            <p>&nbsp;</p>
+                        </div>                        
+                    </div>
+                </div>    
+            </div>
+        </div>
+        <!-- RODAPÉ DA PÁGINA-->
+
+        <script src="../../../foundation-sites-6.6.3-CSS/assets/js/vendor.js"></script>
+        <script src="../../../foundation-sites-6.6.3-CSS/assets/js/foundation.js"></script>
+        <script>
+            $(document).foundation();
+        </script>
+
+    </body>
+</html>

@@ -123,14 +123,14 @@
                             <p>Veja abaixo um exemplo do código do "Hello World" em Flutter:
                             </p><div class="callout sourceCode">
                                 <pre>
-import 'package:flutter/material.dart';
+<span style='font-weight:bold;color:#7B0052;'>import</span> 'package:flutter/material.dart';
 
 void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+<span style='font-weight:bold;color:#7B0052;'>class</span> MyApp <span style='font-weight:bold;color:#7B0052;'>extends</span> StatelessWidget {
     @Override
-    Widget build(BuildContext context) {
-        return MaterialApp(
+    <span style='font-weight:bold;color:#7B0052;'>Widget</span> build(<span style='font-weight:bold;color:#7B0052;'>BuildContext</span> context) {
+        <span style='font-weight:bold;color:#7B0052;'>return</span> MaterialApp(
             title: "Flutter Demo",
             theme: ThemeData(
                 primarySwatch: Colors.blue,
@@ -169,7 +169,7 @@ class MyApp extends StatelessWidget {
                                 <div class="callout sourceCode">
                                     <pre>
 main() {
-print('Hello World!');
+    print('Hello World!');
 }
                                         </pre>
                                 </div>
@@ -180,9 +180,9 @@ print('Hello World!');
                        
                        <div class="callout sourceCode">
                            <pre>
-int fib(int n) => (n > 2) ? (fib(n - 1) + fib(n - 2)) : 1;
+<span style='font-weight:bold;color:#7B0052;'>int</span> fib(int n) => (n > 2) ? (fib(n - 1) + fib(n - 2)) : 1;
 
-void main() {
+<span style='font-weight:bold;color:#7B0052;'>void</span> main() {
 print('fib(20) = ${fib(20)}');
 }
                                </pre>
@@ -210,8 +210,8 @@ print('fib(20) = ${fib(20)}');
                                 <p>Veja o seguinte exemplo de solicitação de rede em Flutter:</p>
                                 <div class="callout sourceCode">
                                     <pre>
-Future<http.Response> fetchPhotos(http.Client client) async {
-    return client.get('https://jsonplaceholder.typicode.com/photos');
+<span style='font-weight:bold;color:#7B0052;'>Future</span><http.Response> fetchPhotos(http.Client client) <span style='font-weight:bold;color:#7B0052;'>async</span> {
+    <span style='font-weight:bold;color:#7B0052;'>return</span> client.get('https://jsonplaceholder.typicode.com/photos');
 }                                 
                                         </pre>
                                 </div>
@@ -231,7 +231,7 @@ Future<http.Response> fetchPhotos(http.Client client) async {
                                 <p>Veja a serialização deste JSON inline:</p>
                                 <div class="callout sourceCode">
                                     <pre>
-Map<String, dynamic> user = jsonDecode(jsonString);
+<span style='font-weight:bold;color:#7B0052;'>Map</span><String, dynamic> user = jsonDecode(jsonString);
 
 print('Howdy, ${user['name']}!');
 print('We sent the verification link to ${user['email']}.');                                
@@ -241,17 +241,17 @@ print('We sent the verification link to ${user['email']}.');
                                 <p>Veja a serialização deste JSON dentro da classe modelo <b>user.dart</b>:</p>
                                 <div class="callout sourceCode">
                                     <pre>
-class User {
+<span style='font-weight:bold;color:#7B0052;'>class</span> User {
     final String name;
     final String email;
 
     User(this.name, this.email);
 
-    User.fromJson(Map<String, dynamic> json)
+    User.fromJson(<span style='font-weight:bold;color:#7B0052;'>Map</span><String, dynamic> json)
     : name = json['name'],
         email = json['email'];
 
-    Map<String, dynamic> toJson() =>
+    <span style='font-weight:bold;color:#7B0052;'>Map</span><String, dynamic> toJson() =>
     {
     'name': name,
     'email': email,
