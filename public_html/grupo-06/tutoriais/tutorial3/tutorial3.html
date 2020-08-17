@@ -56,7 +56,7 @@
                     <div class="cell small-12">
                         <div class="callout">
                             <div class="cell small-12">
-                                <h1> Desenvolvendo aplicação web com Material UI React </h1>
+                                <h1> Desenvolvendo aplicação web com o Framework Material UI for React </h1>
                             </div>
                             <div class="cell small-12">
                                 <hr>                    
@@ -82,7 +82,7 @@
                             <div class="cell small-12">
                                 <ul class="vertical menu">
                                     <li><a href="https://nodejs.org/en/">Node.js</a></li>
-                                    <li><a href="https://reactnative.dev/">React Native</a></li>
+                                    <li><a href="https://pt-br.reactjs.org/">React</a></li>
                                     <li><a href="https://code.visualstudio.com/">Visual Studio Code - Versão 1.47</a></li>
                                 </ul>
                             </div>                            
@@ -110,8 +110,8 @@
                         <hr>
                         <h4>O que é Material UI?</h4>
                         <p> 
-                            Em poucas palavras, é um conjunto de diretrizes, também conhecido como guidelines,
-                            que foi criado pela Google para padronizar todas as suas interfaces gráficas.
+                            Em poucas palavras, é uma biblioteca React UI, um conjunto de diretrizes, também conhecido como guidelines,
+                            para tornar o desenvolvimento de UIs do React mais fácil, melhor e acessível para mais pessoas.
                             A primeira vista, já vemos que uma diretriz do Material Design é a do minimalismo,
                             tudo deve ser muito clean, direto, chamativo, amigável e intuitivo.
                             Além disso, ele tem o propósito de que tudo deve ser como se fosse um mundo real no mundo digital:
@@ -130,8 +130,9 @@
 
                         <p>
                             Este tutorial tem por principal objetivo fornecer um modelo de 
-                            programação baseado em Material UI for React que permite construir um front-end bonito, e em segundo mas não menos 
-                            importante, trabalhar com base em um json, no intuito de posteriormente ligar o projeto a uma API.
+                            programação baseado no Framework Material UI for React que permite construir seu 
+                            próprio design de front-end de modo ágil e raṕido, assim como trabalhar com base em dados
+                            mockados de uma tabela JSON, no intuito de posteriormente ligar o projeto a uma API.
 
 
                         </p>
@@ -145,7 +146,7 @@
                         <h3> Apresentando o Exemplo</h3>
                         <hr>
                         <p> 
-                            Para mostrar a funcionalidade da biblioteca Material UI, utilizaremos o exemplo do relatório
+                            Para mostrar a funcionalidade do Framework Material UI, utilizaremos o exemplo do relatório
                             diário. Veja a especificação abaixo:
                         </p>
 
@@ -176,7 +177,7 @@
                         <hr>
                         <p> 
                             Veja pelo site <a href="https://medium.com/codingthesmartway-com-blog/getting-started-with-material-ui-for-react-material-design-for-react-364b2688b555" target="_blank">(https://medium.com/codingthesmartway-com-blog/getting-started-with-material-ui-for-react-material-design-for-react-364b2688b555)</a>,
-                            como preparar o ambiente para a programação com Material UI com React.                            
+                            como preparar o ambiente para a programação com Material UI for React.                            
                         </p>
                         
                                       
@@ -185,7 +186,7 @@
                                 <div class="grid-x grid-margin-x">
                                     <div class="cell small-9 bold"> </div>
                                     <div class="cell small-3">
-                                        <a href="arquivos/material-ui-react-tutorial3.zip" class="hollow button expanded">Download do projeto .zip</a>
+                                        <a href="arquivos/plantas.zip" class="hollow button expanded">Download do projeto .zip</a>
                                     </div>
                                 </div>
                             </div>                        
@@ -240,11 +241,15 @@ $ npm start</pre>
                         <p>
                             Agora estamos prontos para adicionar nosso próprio código ao projeto.
                             Vamos começar pela tabela <code>JSON</code> da qual vamos conseguir os 
-                            dados medianos necessários para a apresentação no relatório.
+                            dados medianos mocados necessários para a apresentação no relatório.
                         </p>
 
                         <p>
-                            Veja o arquivo JSON a seguir <code>sensores.json</code>
+                            Veja o arquivo JSON a seguir <code>sensores.json</code>. Nele temos os dados 
+                            separados por dia da semana e semana. Também contem as médias de temperatura, umidade, 
+                            eletricidade, e água utilizados. É também a partir dessa estrutura que conseguiremos os dados
+                            para o display de um relatório mensal por meio de gráficos.
+
                         </p>
                         <div class="callout sourceCode">
                             <pre>
@@ -254,7 +259,7 @@ $ npm start</pre>
     "semana": 0,
     "sensores": {
         "temperatura": 28,
-        "humidade": 10,
+        "umidade": 10,
         "agua": 3,
         "eletricidade": 400
     }
@@ -264,7 +269,7 @@ $ npm start</pre>
     "semana": 0,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -274,7 +279,7 @@ $ npm start</pre>
     "semana": 0,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -284,7 +289,7 @@ $ npm start</pre>
     "semana": 0,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -294,7 +299,7 @@ $ npm start</pre>
     "semana": 0,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -304,7 +309,7 @@ $ npm start</pre>
     "semana": 0,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -314,7 +319,7 @@ $ npm start</pre>
     "semana": 0,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -324,7 +329,7 @@ $ npm start</pre>
     "semana": 1,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -334,7 +339,7 @@ $ npm start</pre>
     "semana": 1,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -344,7 +349,7 @@ $ npm start</pre>
     "semana": 1,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -354,7 +359,7 @@ $ npm start</pre>
     "semana": 1,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -364,7 +369,7 @@ $ npm start</pre>
     "semana": 1,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -374,7 +379,7 @@ $ npm start</pre>
     "semana": 1,
     "sensores": {
         "temperatura": 1,
-        "humidade": 2,
+        "umidade": 2,
         "agua": 3,
         "eletricidade": 4
     }
@@ -383,11 +388,12 @@ $ npm start</pre>
                         </div>                        
 
                         <p>
-                            Veja o código do arquivo <code>App.js</code>
+                            Veja o código do arquivo <code>App.js</code>. O layout foi definido como um Grid, com um Card
+                            para a seleção dos dados a serem visualizados, e outro Card no qual ocorre o display dos dados. 
                         </p>
                         <div class="callout sourceCode">
                             <pre>
-                                import React, { useState } from 'react';
+import React, { useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
@@ -461,7 +467,7 @@ export default function FullWidthGrid() {
                   {`🌡 temperatura: ${selected.sensores.temperatura}`}
                 &lt;/Typography>
                 &lt;Typography variant="h5" component="h2">
-                  {`⛲ agua: ${selected.sensores.humidade}`}
+                  {`⛲ agua: ${selected.sensores.umidade}`}
                 &lt;/Typography>
                 &lt;Typography variant="h5" component="h2">
                   {`💧 umidade: ${selected.sensores.agua}`}
@@ -483,7 +489,8 @@ export default function FullWidthGrid() {
                        
 
                         <p>
-                            Observe que este projeto não está integrado com o back-end, e que faltam implementações de filtros e gráficos.
+                            Observe que o exemplo neste tutorial está fazendo uso de dados mockados, e que portanto 
+                            não está integrado com o back-end, o que será feito posteriormente, e que faltam implementações de filtros e gráficos.
                         </p>
 
                         <p>
@@ -493,8 +500,8 @@ export default function FullWidthGrid() {
                             Se fizermos isso, no browser veremos a página de relatórios diários, onde o usuário seleciona o dia da semana do qual ele quer visualizar
                             os dados.
                         </p>
-                        <img src="imagens/image.png" width="400" height="283" alt="imagem"/>
-                        <img src="imagens/image (1).png" width="400" height="283" alt="imagem-01"/>
+                        <img src="imagens/image.png" width="1000" height="400" alt="estado nao selecionado"/>
+                        <img src="imagens/image (1).png" width="1000" height="400" alt="estado selecionado"/>
 
                         <br>
                         <br>
@@ -502,30 +509,12 @@ export default function FullWidthGrid() {
 
                             <div class="cell small-12">                                
                                 <p> 
-                                    Bem, é isso! Até a próxima! <img src="imagem/emoji.png" width="32" height="32" alt="emoji"/>
+                                    Bem, é isso! Até a próxima! <img src="imagens/emoji.png" width="32" height="32" alt="emoji"/>
                                 </p>
                             </div>
                         </div>
 
-                        <div class="cell small-12">
-                            <div class="callout">
-                                <div class="grid-container">
-                                    <div class="grid-x grid-margin-x">
-                                        <div class="cell small-3">
-                                            <img src="imagem/imagem-10.png" width="200" height="168" alt="imagem-10"/>
-                                        </div>
-                                        <div class="cell small-9 align-self-middle">                                        
-                                            <h3> AVISO IMPORTANTE: </h3>                                       
-
-                                            <h4>
-                                                O projeto completo estará disponível para download somente após a atividade prática 
-                                                a ser inserida no Google Classroom.
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>                                                       
-                        </div>
+                       
                     </div>
                 </div>
             </div>
