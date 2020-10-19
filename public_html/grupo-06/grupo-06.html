@@ -355,7 +355,7 @@
                            
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-classe/diagrama_classes.png" width="1000" height="1000" alt="diagrama-de-classes"/>
+                            <img src="diagrama-de-classe/diagrama-de-classes.png" width="1000" height="1000" alt="diagrama-de-classes"/>
                         </div>
                         <div class="cell small-12">
                             <p class="bold">CÓDIGO FONTE: </p>
@@ -365,54 +365,72 @@
 @startuml
 class Localizacao {
     -String nome
-}
-abstract class Sensor {
-    -String idSensor
-    -String nomeSensor
+   }
+   abstract class Sensor {
+    -String id
+    -String nome
+    -String tipo
     
-}
-class Leitura {
+   }
+   
+   class Leitura {
     -Double valorLeitura
     -DateTime dataLeitura
     -String unidadeMedida
-}
-class SensorTemperatura { 
-}
-class SensorUmidade {
-}
-class SensorLuminosidade {
-}
-class SensorEnergia {
-}
-class MediaSensor {
+   }
+   
+   
+   
+   class MediaSensor {
     -String idMedia
     -String descMedia
     -double valorMedia
-}
-class Dia {
+   }
+   
+   class Dia {
     -Date dia
-}
-class Semana{
+   }
+   
+   class Semana {
     -Date inicioPeriodo
     -Date fimPeriodo
-}
-class Mes{
+   }
+   
+   class Mes {
     -Date inicioPeriodo
     -Date fimPeriodo
-}
-Sensor "N" o-- "1" Localizacao
-
-Sensor <|-- SensorTemperatura
-Sensor <|-- SensorUmidade
-Sensor <|-- SensorLuminosidade
-Sensor <|-- SensorEnergia
-
-Sensor "1" *-- "*" Leitura: Contém
-(Sensor, Leitura) .. MediaSensor
-
-Dia "1" --> "*" MediaSensor
-Semana "1" --> "7" Dia
-Mes "1" --> "4" Semana
+   
+   }
+   
+   
+   
+   Sensor "N" o-- "1" Localizacao
+   
+   
+   Sensor "1" *-- "*" Leitura: Contém
+   (Sensor, Leitura) .. MediaSensor
+   
+   
+   Dia "1" --> "*" MediaSensor
+   Semana "1" --> "7" Dia
+   Mes "1" --> "4" Semana
+   
+   
+   
+   Sensor <|-- SensorTemperatura
+   Sensor <|-- SensorUmidade
+   Sensor <|-- SensorLuminosidade
+   Sensor <|-- SensorEnergia
+   
+   
+   Sensor "1" *-- "*" Leitura: Contém
+   (Sensor, Leitura) .. MediaSensor
+   
+   
+   Dia "1" --> "*" MediaSensor
+   Semana "1" --> "7" Dia
+   Mes "1" --> "4" Semana
+   
 @enduml
                                     </pre>
                                 </div>
@@ -445,10 +463,10 @@ Mes "1" --> "4" Semana
                             <hr>                    
                         </div>
                         <div class="cell small-12">
-                            <p class = "bold"> NOME-DA-FUNCIONALIDADE </p>                    
+                            <p class = "bold"> Exibir último valor do sensor </p>                    
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-caso-de-uso/diagrama-de-caso-de-uso.png" width="353" height="369" alt="diagrama-de-classes"/>
+                            <img src="diagrama-de-caso-de-uso/exibirUltimoValorSensor.png" width="353" height="369" alt="diagrama-de-classes"/>
                         </div>
                         <div class="cell small-12">
                             <p class="bold">CÓDIGO FONTE: </p>
@@ -457,18 +475,27 @@ Mes "1" --> "4" Semana
                                     <pre>
 @startuml
 
-Employee -up-|> User
-Client -up-|> User
-Supervisor -up-|> User
-Employee --> (Login)
-Supervisor --> (Login)
-Client ..> (Login) : NO!!!!
-Supervisor --> (Create / Delete User): I am god
+actor Usuário
+
+(Selecionar sensor) as SS
+(Receber última leitura) as RL
+
+Usuário --> SS
+
+SS --> RL
+
 
 @enduml
                                     </pre>
                                 </div>
                             </div>
+                        </div>
+                        <div class="cell small-12">
+                            <p class="bold">TABELA: </p>
+                            
+                        </div>
+                        <div class="cell small-12 center">
+                            <img src="diagrama-de-caso-de-uso/tabelaExibirUltimoValorSensor.png" width="600" height="600" alt="diagrama-de-classes"/>
                         </div>
                         <br>                       
                         <div class="grid-container">
@@ -484,6 +511,131 @@ Supervisor --> (Create / Delete User): I am god
                         </div>                        
                     </div>
                     <!-- DIAGRAMA DE CASO DE USO -->
+                    <div class="cell small-12">  
+                        <div id="id3">
+                            <div class="cell small-12">
+                                <h1 class="center"> Sistema de Monitoramento de Estufa</h1>
+                                <h3 class="center">(Diagramas de Caso de Uso)</h3>
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <hr>                    
+                        </div>
+                        <div class="cell small-12">
+                            <p class = "bold"> Cadastrar novo sensor</p>                    
+                        </div>
+                        <div class="cell small-12 center">
+                            <img src="diagrama-de-caso-de-uso/cadastrarNovoSensor.png" width="353" height="369" alt="diagrama-de-classes"/>
+                        </div>
+                        <div class="cell small-12">
+                            <p class="bold">CÓDIGO FONTE: </p>
+                            <div class="cell small-12">
+                                <div class="callout">
+                                    <pre>
+@startuml
+left to right direction
+actor "Usuário" as us
+package FrontEnd {
+    usecase "Abrir tela cadastro" as UC1
+    usecase "Preencher dados" as UC2
+    usecase "Botão salvar" as UC3
+    usecase "Retorno do Salvar" as UC5
+}
+package BackEnd {
+    usecase "Salvar Botão" as UC4
+}
+us --> UC1
+us --> UC2
+us --> UC3
+UC3 --> UC4
+UC4 --> UC5
+UC5 --> us
+@enduml
+                                        
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <p class="bold">TABELA: </p>
+                            
+                        </div>
+                        <div class="cell small-12 center">
+                            <img src="diagrama-de-caso-de-uso/tabelaCadastrarNovoSensor.png" width="600" height="600" alt="diagrama-de-classes"/>
+                        </div>
+                        <br>                       
+                        <div class="grid-container">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell small-10">&nbsp;</div>
+                                <div class="cell small-2">
+                                    <a href="#topo" class="button expanded">Retornar ao topo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-12">                    
+                            <hr>
+                        </div>                        
+                    </div>
+                    <!-- DIAGRAMA DE CASO DE USO -->
+                    <div class="cell small-12">  
+                        <div id="id3">
+                            <div class="cell small-12">
+                                <h1 class="center"> Sistema de Monitoramento de Estufa</h1>
+                                <h3 class="center">(Diagramas de Caso de Uso)</h3>
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <hr>                    
+                        </div>
+                        <div class="cell small-12">
+                            <p class = "bold"> Transmitir mensagem </p>                    
+                        </div>
+                        <div class="cell small-12 center">
+                            <img src="diagrama-de-caso-de-uso/transmitirMensagem.png" width="353" height="369" alt="diagrama-de-classes"/>
+                        </div>
+                        <div class="cell small-12">
+                            <p class="bold">CÓDIGO FONTE: </p>
+                            <div class="cell small-12">
+                                <div class="callout">
+                                    <pre>
+@startuml
+actor Sensor
+actor Sistema
+
+(Enviar Leitura) as EL
+(Salvar Leitura) as SL
+
+Sensor --> EL
+Sistema --> SL
+
+EL ..> SL : include
+
+@enduml
+                                        
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-12">
+                            <p class="bold">TABELA: </p>
+                            
+                        </div>
+                        <div class="cell small-12 center">
+                            <img src="diagrama-de-caso-de-uso/tabelaTransmitirMensagem.png" width="600" height="600" alt="diagrama-de-classes"/>
+                        </div>
+                        <br>                       
+                        <div class="grid-container">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell small-10">&nbsp;</div>
+                                <div class="cell small-2">
+                                    <a href="#topo" class="button expanded">Retornar ao topo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-12">                    
+                            <hr>
+                        </div>                        
+                    </div>
 
 
                     <!-- DIAGRAMA DE SEQUENCIA -->
@@ -498,10 +650,10 @@ Supervisor --> (Create / Delete User): I am god
                             <hr>                    
                         </div>
                         <div class="cell small-12">
-                            <p class = "bold"> NOME-DA-FUNCIONALIDADE </p>                    
+                            <p class = "bold"> Cadastrar novo sensor </p>                    
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-sequencia/diagrama-de-sequencia.png" width="465" height="344" alt="diagrama-de-sequencia"/>
+                            <img src="diagrama-de-sequencia/cadastrarNovoSensorSequencia.png" width="900" height="1100" alt="diagrama-de-sequencia"/>
                         </div>
                         <div class="cell small-12">
                             <p class="bold">CÓDIGO FONTE: </p>
@@ -509,21 +661,27 @@ Supervisor --> (Create / Delete User): I am god
                                 <div class="callout">
                                     <pre>
 @startuml
-
-title "Exemplo"
-
-actor User
-boundary "Web GUI" as GUI
-control "Shopping Cart" as SC
-entity Widget
-database Widgets
-
-User -> GUI : To boundary
-GUI -> SC : To control
-SC -> Widget : To entity
-Widget -> Widgets : To database
-
+actor Usuario
+Usuario -> "Tela Cadastro Sensor": "Localização Sensor", "Nome"
+boundary "API Service"
+"Tela Cadastro Sensor" -> "API Service": ApiService<POST>("CadastroSensor")
+boundary "REST API"
+loop 3 times on error
+"API Service" -> "REST API": CadastroSensor.JsonObject
+activate "REST API"
+"REST API" -> Repository: Save(Sensor)
+database MongoDB
+activate Repository
+Repository -> MongoDB: Save(Sensor)
+MongoDB -> Repository: Boolean
+Repository -> "REST API": Boolean
+deactivate Repository
+"REST API" -> "API Service": HttpResponse(OK|Error)
+deactivate "REST API"
+end
+"REST API" -> "Tela Cadastro Sensor": Bool
 @enduml
+                                        
                                     </pre>
                                 </div>
                             </div>
@@ -551,30 +709,8 @@ Widget -> Widgets : To database
                                 <h3 class="center">(Diagrama Entidade Relacionamento)</h3>
                             </div>
                         </div>
-                        <div class="cell small-12">
-                            <hr>                    
-                        </div>
-                        <div class="cell small-12">
-                            <p class = "bold"> NOME-DA-DIAGRAMA (SE USAR PARTES) </p>                    
-                        </div>
-                        <div class="cell small-12 center">
-                            <img src="diagrama-mer/mer.png" width="687" height="348" alt="mer"/>
-                        </div>
-                        <div class="cell small-12">
-                            <p class="bold">ARQUIVO DO PROJETO: </p>
-                            <div class="cell small-12">
-                                <div class="callout">
-                                    <div class="grid-container">
-                                        <div class="grid-x grid-margin-x">
-                                            <div class="cell small-10">&nbsp;</div>
-                                            <div class="cell small-2">
-                                                <a href="arquivos/modelo.mwb" class="button secondary expanded">Visualizar arquivo</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
+                       
                         <br>                     
                         <div class="grid-container">
                             <div class="grid-x grid-margin-x">
@@ -607,7 +743,7 @@ Widget -> Widgets : To database
                             <p class="bold">DESCRIÇÃO DO PROJETO: </p>
                             <div class="cell small-12">
                                 <div class="callout">
-                                    <p> Este é um exemplo de descrição de projeto.</p>
+                                    
 
                                     <p> Para o desenvolvimento deste projeto foram utilizadas as seguintes ferramentas:</p>
 
@@ -629,7 +765,7 @@ Widget -> Widgets : To database
                                     <div class="grid-container">
                                         <div class="grid-x grid-margin-x">
                                             <div class="cell small-10">&nbsp;</div>
-                                            <div class="cell small-2">
+                                            <div class="cell small-4">
                                                 <a href="projetos-zip/projeto.zip" class="button secondary expanded">Visualizar arquivo</a>
                                             </div>
                                         </div>
