@@ -512,12 +512,7 @@ SS --> RL
                     </div>
                     <!-- DIAGRAMA DE CASO DE USO -->
                     <div class="cell small-12">  
-                        <div id="id3">
-                            <div class="cell small-12">
-                                <h1 class="center"> Sistema de Monitoramento de Estufa</h1>
-                                <h3 class="center">(Diagramas de Caso de Uso)</h3>
-                            </div>
-                        </div>
+                        
                         <div class="cell small-12">
                             <hr>                    
                         </div>
@@ -578,12 +573,7 @@ UC5 --> us
                     </div>
                     <!-- DIAGRAMA DE CASO DE USO -->
                     <div class="cell small-12">  
-                        <div id="id3">
-                            <div class="cell small-12">
-                                <h1 class="center"> Sistema de Monitoramento de Estufa</h1>
-                                <h3 class="center">(Diagramas de Caso de Uso)</h3>
-                            </div>
-                        </div>
+                        
                         <div class="cell small-12">
                             <hr>                    
                         </div>
@@ -700,6 +690,121 @@ end
                         </div>                        
                     </div>
                     <!-- DIAGRAMA DE SEQUENCIA -->
+                    <div class="cell small-12">  
+                       
+                        <div class="cell small-12">
+                            <hr>                    
+                        </div>
+                        <div class="cell small-12">
+                            <p class = "bold"> Exibir último valor lido do sensor </p>                    
+                        </div>
+                        <div class="cell small-12 center">
+                            <img src="diagrama-de-sequencia/exibirUltimoValorSensorSequencia.png" width="900" height="1100" alt="diagrama-de-sequencia"/>
+                        </div>
+                        <div class="cell small-12">
+                            <p class="bold">CÓDIGO FONTE: </p>
+                            <div class="cell small-12">
+                                <div class="callout">
+                                    <pre>
+@startuml
+actor Usuario
+Usuario -> "Tela Cadastro Sensor": "Tipo sensor"
+boundary "API Service"
+"Tela Cadastro Sensor" -> "API Service": ApiService<GET>("Tempo-Real")
+boundary "REST API"
+loop 3 times on error
+"API Service" -> "REST API": TipoSensor.JsonObject
+activate "REST API"
+"REST API" -> Repository: getLastLeitura(TipoSensor)
+database MongoDB
+activate Repository
+Repository -> MongoDB: Retrieve(Leitura)
+MongoDB -> Repository: Boolean
+Repository -> "REST API": Boolean
+deactivate Repository
+"REST API" -> "API Service": HttpResponse(OK|Error)
+deactivate "REST API"
+end
+"API Service" -> "Tela Cadastro Sensor": Bool
+
+@enduml
+                                        
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                        <br>                       
+                        <div class="grid-container">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell small-10">&nbsp;</div>
+                                <div class="cell small-2">
+                                    <a href="#topo" class="button expanded">Retornar ao topo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-12">                    
+                            <hr>
+                        </div>                        
+                    </div>
+
+                    <!-- DIAGRAMA DE SEQUENCIA -->
+                    <div class="cell small-12">  
+                       
+                        <div class="cell small-12">
+                            <hr>                    
+                        </div>
+                        <div class="cell small-12">
+                            <p class = "bold"> Transmitir mensagem do sensor para o servidor </p>                    
+                        </div>
+                        <div class="cell small-12 center">
+                            <img src="diagrama-de-sequencia/transmitirMensagemSensorServidorSequencia.png" width="900" height="1100" alt="diagrama-de-sequencia"/>
+                        </div>
+                        <div class="cell small-12">
+                            <p class="bold">CÓDIGO FONTE: </p>
+                            <div class="cell small-12">
+                                <div class="callout">
+                                    <pre>
+@startuml
+actor "MQTT"
+"MQTT" -> "MQTT Router": "Leitura"
+boundary "API Service"
+"MQTT Router" -> "API Service": ApiService<POST>("Leitura")
+boundary "REST API"
+loop 3 times on error
+"API Service" -> "REST API": Leitura.JsonObject
+activate "REST API"
+"REST API" -> Repository: Save(Leitura)
+database MongoDB
+activate Repository
+Repository -> MongoDB: Save(Leitura)
+MongoDB -> Repository: Boolean
+Repository -> "REST API": Boolean
+deactivate Repository
+"REST API" -> "API Service": HttpResponse(OK|Error)
+deactivate "REST API"
+end
+"API Service" -> "MQTT Router": Bool
+
+
+@enduml
+                                        
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
+                        <br>                       
+                        <div class="grid-container">
+                            <div class="grid-x grid-margin-x">
+                                <div class="cell small-10">&nbsp;</div>
+                                <div class="cell small-2">
+                                    <a href="#topo" class="button expanded">Retornar ao topo</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="cell small-12">                    
+                            <hr>
+                        </div>                        
+                    </div>
 
                     <!-- MER -->
                     <div class="cell small-12">  
@@ -766,7 +871,7 @@ end
                                         <div class="grid-x grid-margin-x">
                                             <div class="cell small-10">&nbsp;</div>
                                             <div class="cell small-4">
-                                                <a href="projetos-zip/projeto.zip" class="button secondary expanded">Visualizar arquivo</a>
+                                                <a href="projetos-zip/trabalhossoobackend-main.zip" class="button secondary expanded">Visualizar arquivo</a>
                                             </div>
                                         </div>
                                     </div>
