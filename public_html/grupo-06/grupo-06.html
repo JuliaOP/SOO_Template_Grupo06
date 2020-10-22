@@ -101,9 +101,6 @@
                                 <h1 class="center"> Tutoriais Elaborados</h1>                                                          
                             </div>
                         </div>
-                        <div class="cell small-12">
-                            <hr>                    
-                        </div>
 
                         <div class="cell small-15">
                             <div class="callout">
@@ -162,10 +159,7 @@
                                     <a href="#topo" class="button expanded">Retornar ao topo</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="cell small-12">                    
-                            <hr>
-                        </div>                            
+                        </div>                           
                     </div> <!-- Tutoriais -->
 
                     <!-- ESPECIFICAÇÃO DE REQUISITOS-->
@@ -178,9 +172,6 @@
                                 <h1 class="center"> Sistema de Monitoramento de Estufa</h1>                            
                                 <h3 class="center">(Especificação de Requisitos)</h3>
                             </div>
-                        </div>
-                        <div class="cell small-12">
-                            <hr>                    
                         </div>
 
                         <div class="cell small-12">
@@ -349,89 +340,63 @@
                             </div>
                         </div>
                         <div class="cell small-12">
-                            <hr>                    
-                        </div>
-                        <div class="cell small-12">
                            
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-classe/diagrama-de-classes.png" width="1000" height="1000" alt="diagrama-de-classes"/>
+                            <img src="diagrama-de-classe/diagrama-de-classes.png" height="700" alt="diagrama-de-classes"/>
                         </div>
                         <div class="cell small-12">
                             <p class="bold">CÓDIGO FONTE: </p>
                             <div class="cell small-12">
                                 <div class="callout">
                                     <pre>
-@startuml
 class Localizacao {
     -String nome
-   }
-   abstract class Sensor {
+}
+abstract class Sensor {
     -String id
     -String nome
     -String tipo
-    
-   }
-   
-   class Leitura {
+}
+
+class Leitura {
     -Double valorLeitura
     -DateTime dataLeitura
     -String unidadeMedida
-   }
-   
-   
-   
-   class MediaSensor {
+}
+
+class MediaSensor {
     -String idMedia
     -String descMedia
     -double valorMedia
-   }
-   
-   class Dia {
+}
+
+class Dia {
     -Date dia
-   }
-   
-   class Semana {
+}
+
+class Semana {
     -Date inicioPeriodo
     -Date fimPeriodo
-   }
-   
-   class Mes {
+}
+
+class Mes {
     -Date inicioPeriodo
     -Date fimPeriodo
-   
-   }
-   
-   
-   
-   Sensor "N" o-- "1" Localizacao
-   
-   
-   Sensor "1" *-- "*" Leitura: Contém
-   (Sensor, Leitura) .. MediaSensor
-   
-   
-   Dia "1" --> "*" MediaSensor
-   Semana "1" --> "7" Dia
-   Mes "1" --> "4" Semana
-   
-   
-   
-   Sensor <|-- SensorTemperatura
-   Sensor <|-- SensorUmidade
-   Sensor <|-- SensorLuminosidade
-   Sensor <|-- SensorEnergia
-   
-   
-   Sensor "1" *-- "*" Leitura: Contém
-   (Sensor, Leitura) .. MediaSensor
-   
-   
-   Dia "1" --> "*" MediaSensor
-   Semana "1" --> "7" Dia
-   Mes "1" --> "4" Semana
-   
-@enduml
+}
+
+
+
+Sensor "N" o-- "1" Localizacao
+
+
+Sensor "1" *-- "*" Leitura: Contém
+(Sensor, Leitura) .. MediaSensor
+
+
+Dia "1" --> "*" MediaSensor
+Semana "1" --> "7" Dia
+Mes "1" --> "4" Semana
                                     </pre>
                                 </div>
                             </div>
@@ -460,13 +425,10 @@ class Localizacao {
                             </div>
                         </div>
                         <div class="cell small-12">
-                            <hr>                    
-                        </div>
-                        <div class="cell small-12">
                             <p class = "bold"> Exibir último valor do sensor </p>                    
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-caso-de-uso/exibirUltimoValorSensor.png" width="353" height="369" alt="diagrama-de-classes"/>
+                            <img src="diagrama-de-caso-de-uso/exibirUltimoValorSensor.png" alt="diagrama-de-classes"/>
                         </div>
                         <div class="cell small-12">
                             <p class="bold">CÓDIGO FONTE: </p>
@@ -495,7 +457,7 @@ SS --> RL
                             
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-caso-de-uso/tabelaExibirUltimoValorSensor.png" width="600" height="600" alt="diagrama-de-classes"/>
+                            <img src="diagrama-de-caso-de-uso/tabelaExibirUltimoValorSensor.png" alt="diagrama-de-classes"/>
                         </div>
                         <br>                       
                         <div class="grid-container">
@@ -512,15 +474,11 @@ SS --> RL
                     </div>
                     <!-- DIAGRAMA DE CASO DE USO -->
                     <div class="cell small-12">  
-                        
-                        <div class="cell small-12">
-                            <hr>                    
-                        </div>
                         <div class="cell small-12">
                             <p class = "bold"> Cadastrar novo sensor</p>                    
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-caso-de-uso/cadastrarNovoSensor.png" width="353" height="369" alt="diagrama-de-classes"/>
+                            <img src="diagrama-de-caso-de-uso/cadastrarNovoSensor.png" alt="diagrama-de-classes"/>
                         </div>
                         <div class="cell small-12">
                             <p class="bold">CÓDIGO FONTE: </p>
@@ -556,7 +514,7 @@ UC5 --> us
                             
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-caso-de-uso/tabelaCadastrarNovoSensor.png" width="600" height="600" alt="diagrama-de-classes"/>
+                            <img src="diagrama-de-caso-de-uso/tabelaCadastrarNovoSensor.png" alt="diagrama-de-classes"/>
                         </div>
                         <br>                       
                         <div class="grid-container">
@@ -572,16 +530,12 @@ UC5 --> us
                         </div>                        
                     </div>
                     <!-- DIAGRAMA DE CASO DE USO -->
-                    <div class="cell small-12">  
-                        
-                        <div class="cell small-12">
-                            <hr>                    
-                        </div>
+                    <div class="cell small-12">
                         <div class="cell small-12">
                             <p class = "bold"> Transmitir mensagem </p>                    
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-caso-de-uso/transmitirMensagem.png" width="353" height="369" alt="diagrama-de-classes"/>
+                            <img src="diagrama-de-caso-de-uso/transmitirMensagem.png" alt="diagrama-de-classes"/>
                         </div>
                         <div class="cell small-12">
                             <p class="bold">CÓDIGO FONTE: </p>
@@ -611,7 +565,7 @@ EL ..> SL : include
                             
                         </div>
                         <div class="cell small-12 center">
-                            <img src="diagrama-de-caso-de-uso/tabelaTransmitirMensagem.png" width="600" height="600" alt="diagrama-de-classes"/>
+                            <img src="diagrama-de-caso-de-uso/tabelaTransmitirMensagem.png" alt="diagrama-de-classes"/>
                         </div>
                         <br>                       
                         <div class="grid-container">
@@ -637,9 +591,6 @@ EL ..> SL : include
                             </div>
                         </div>
                         <div class="cell small-12">
-                            <hr>                    
-                        </div>
-                        <div class="cell small-12">
                             <p class = "bold"> Cadastrar novo sensor </p>                    
                         </div>
                         <div class="cell small-12 center">
@@ -652,26 +603,25 @@ EL ..> SL : include
                                     <pre>
 @startuml
 actor Usuario
-Usuario -> "Tela Cadastro Sensor": "Localização Sensor", "Nome"
+Usuario -> "Tela Cadastro Sensor": "Tipo sensor"
 boundary "API Service"
-"Tela Cadastro Sensor" -> "API Service": ApiService<POST>("CadastroSensor")
+"Tela Cadastro Sensor" -> "API Service": ApiService<GET>("Tempo-Real")
 boundary "REST API"
 loop 3 times on error
-"API Service" -> "REST API": CadastroSensor.JsonObject
+"API Service" -> "REST API": TipoSensor.JsonObject
 activate "REST API"
-"REST API" -> Repository: Save(Sensor)
+"REST API" -> Repository: getLastLeitura(TipoSensor)
 database MongoDB
 activate Repository
-Repository -> MongoDB: Save(Sensor)
+Repository -> MongoDB: Retrieve(Leitura)
 MongoDB -> Repository: Boolean
 Repository -> "REST API": Boolean
 deactivate Repository
 "REST API" -> "API Service": HttpResponse(OK|Error)
 deactivate "REST API"
 end
-"REST API" -> "Tela Cadastro Sensor": Bool
+"API Service" -> "Tela Cadastro Sensor": Bool
 @enduml
-                                        
                                     </pre>
                                 </div>
                             </div>
@@ -690,11 +640,7 @@ end
                         </div>                        
                     </div>
                     <!-- DIAGRAMA DE SEQUENCIA -->
-                    <div class="cell small-12">  
-                       
-                        <div class="cell small-12">
-                            <hr>                    
-                        </div>
+                    <div class="cell small-12">
                         <div class="cell small-12">
                             <p class = "bold"> Exibir último valor lido do sensor </p>                    
                         </div>
@@ -748,11 +694,7 @@ end
                     </div>
 
                     <!-- DIAGRAMA DE SEQUENCIA -->
-                    <div class="cell small-12">  
-                       
-                        <div class="cell small-12">
-                            <hr>                    
-                        </div>
+                    <div class="cell small-12">
                         <div class="cell small-12">
                             <p class = "bold"> Transmitir mensagem do sensor para o servidor </p>                    
                         </div>
@@ -806,32 +748,6 @@ end
                         </div>                        
                     </div>
 
-                    <!-- MER -->
-                    <div class="cell small-12">  
-                        <div id="id5">
-                            <div class="cell small-12">
-                                <h1 class="center"> Sistema de Monitoramento de Estufa</h1>
-                                <h3 class="center">(Diagrama Entidade Relacionamento)</h3>
-                            </div>
-                        </div>
-                        
-                       
-                        <br>                     
-                        <div class="grid-container">
-                            <div class="grid-x grid-margin-x">
-                                <div class="cell small-10">&nbsp;</div>
-                                <div class="cell small-2">
-                                    <a href="#topo" class="button expanded">Retornar ao topo</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="cell small-12">                    
-                            <hr>
-                        </div>                        
-                    </div>
-                    <!-- MER -->
-
-
 
                     <!-- PROJETO -->
                     <div class="cell small-12">  
@@ -841,9 +757,7 @@ end
                                 <h3 class="center">(Recursos Utilizados)</h3>
                             </div>
                         </div>
-                        <div class="cell small-12">
-                            <hr>                    
-                        </div>
+
                         <div class="cell small-12">
                             <p class="bold">DESCRIÇÃO DO PROJETO: </p>
                             <div class="cell small-12">
@@ -864,14 +778,18 @@ end
                         </div>
                         <br>
                         <div class="cell small-12">
-                            <p class="bold">ARQUIVO DO PROJETO: </p>
+                            <p class="bold">ARQUIVOS DO PROJETO: </p>
                             <div class="cell small-12">
                                 <div class="callout">
                                     <div class="grid-container">
                                         <div class="grid-x grid-margin-x">
                                             <div class="cell small-10">&nbsp;</div>
                                             <div class="cell small-4">
-                                                <a href="projetos-zip/trabalhossoobackend-main.zip" class="button secondary expanded">Visualizar arquivo</a>
+                                                <a href="projetos-zip/MQTTtoHTTP.zip" class="button secondary expanded">MQTT para HTTP</a>
+                                                * O servidor MQTT que está no projeto é acessível pela internet com o mesmo IP, usuário e senha.
+                                            </div>
+                                            <div class="cell small-4">
+                                                <a href="projetos-zip/trabalhossoobackend.zip" class="button secondary expanded">API com Spring</a>
                                             </div>
                                         </div>
                                     </div>
